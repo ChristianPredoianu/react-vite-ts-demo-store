@@ -15,5 +15,5 @@ export default function useScreenWidth() {
     };
   }, [screenWidth]);
 
-  return [screenWidth];
+  return [screenWidth] as const;
 }

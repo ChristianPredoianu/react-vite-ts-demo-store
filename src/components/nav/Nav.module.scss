@@ -1,0 +1,40 @@
+@use '@/sass/abstracts' as *;
+
+.Nav {
+  display: block;
+  padding: 2rem 0;
+
+  @include respond(sm) {
+    @include flex-config($justify: space-between, $align: center);
+  }
+}
+
+.NavList {
+  height: auto;
+  margin-top: 2rem;
+
+  @include respond(sm) {
+    @include flex-config($direction: row, $align: center);
+    width: 40%;
+    margin-top: 0;
+  }
+}
+
+.NavListItem {
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.NavListItem {
+  font-size: 1.5rem;
+}
+
+.Hamburger {
+  @include position($pos: absolute, $top: 3.6rem, $right: 4rem);
+  font-size: 3rem;
+
+  @include respond(sm) {
+    display: none;
+  }
+}

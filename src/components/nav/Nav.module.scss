@@ -1,6 +1,6 @@
 @use '@/sass/abstracts' as *;
 
-.Nav {
+.nav {
   display: block;
   padding: 2rem 0;
 
@@ -9,7 +9,7 @@
   }
 }
 
-.NavList {
+.navLinks {
   height: auto;
   margin-top: 2rem;
 
@@ -20,21 +20,14 @@
   }
 }
 
-.NavListItem {
-  width: 100%;
-  text-align: center;
-  padding: 2rem 0;
+.slideEnter {
+  transform: translateY(-100%);
 }
-
-.NavListItem {
-  font-size: 1.5rem;
+.slideEnterActive {
+  transform: translateY(0);
+  transition: transform 300ms;
 }
-
-.Hamburger {
-  @include position($pos: absolute, $top: 3.6rem, $right: 4rem);
-  font-size: 3rem;
-
-  @include respond(sm) {
-    display: none;
-  }
+.slideExitActive {
+  transform: translateY(-100%);
+  transition: transform 300ms;
 }

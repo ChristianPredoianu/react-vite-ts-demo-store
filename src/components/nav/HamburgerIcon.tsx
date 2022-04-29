@@ -7,11 +7,13 @@ interface hamburgerProps {
 }
 
 export default function HamburgerIcon({ onToggleNav }: hamburgerProps) {
-  return (
+  const hamburgerIcon = (
     <FontAwesomeIcon
       icon={faBars}
       className={classes.hamburger}
       onClick={onToggleNav}
     />
   );
+
+  return { hamburgerIcon };
 }

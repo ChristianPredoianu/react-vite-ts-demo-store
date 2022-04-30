@@ -9,15 +9,8 @@
   }
 }
 
-.navLinks {
-  height: auto;
-  margin-top: 2rem;
-
-  @include respond(sm) {
-    @include flex-config($direction: row, $align: center);
-    width: 40%;
-    margin-top: 0;
-  }
+.logo {
+  width: 10rem;
 }
 
 .slideEnter {

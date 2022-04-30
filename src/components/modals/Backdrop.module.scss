@@ -1,0 +1,9 @@
+@use '@/sass/abstracts' as *;
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  z-index: 100;
+  background-color: var(--clr-modal-overlay);
+}

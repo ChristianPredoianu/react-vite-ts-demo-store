@@ -1,20 +1,32 @@
 import { useState, useRef } from 'react';
-import NavLogo from '@/assets/fakestore2.png';
+import NavLogo from '@/assets/logo.png';
 import useScreenWidth from '@/hooks/useScreenWidth';
 import { CSSTransition } from 'react-transition-group';
 import NavLinks from '@/components/nav/NavLinks';
 import HamburgerIcon from '@/components/nav/HamburgerIcon';
+import SearchIcon from '@/components/nav/SearchIcon';
+import SearchModal from '@/components/modals/search-modal/SearchModal';
 import classes from '@/components/nav/Nav.module.scss';
 
 export default function Nav() {
   const [screenWidth] = useScreenWidth();
 
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
-  const nodeRef = useRef<HTMLUListElement | null>(null);
+  const nodeRef = useRef<HTMLUListElement>(null);
 
   function toggleNavHandler() {
     setIsNavOpen(!isNavOpen);
+  }
+
+  function openSearchModalHandler() {
+    setIsSearchModalOpen(true);
+  }
+
+  function closeSearchModalHandler() {
+    setIsSearchModalOpen(false);
+    console.log('closed');
   }
 
   return (
@@ -32,14 +44,14 @@ export default function Nav() {
           }}
           unmountOnExit
         >
-          {
-            <ul className={classes.navLinks} ref={nodeRef}>
-              <NavLinks />
-            </ul>
-          }
+          <NavLinks ref={nodeRef} />
         </CSSTransition>
         <HamburgerIcon onToggleNav={toggleNavHandler} />
+        <SearchIcon onOpenSearch={openSearchModalHandler} />
       </nav>
+      {isSearchModalOpen && (
+        <SearchModal onCloseSearchModal={closeSearchModalHandler} />
+      )}
     </header>
   );
 }

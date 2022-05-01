@@ -8,10 +8,8 @@ interface hamburgerProps {
 
 export default function HamburgerIcon({ onToggleNav }: hamburgerProps) {
   return (
-    <FontAwesomeIcon
-      icon={faBars}
-      className={classes.hamburger}
-      onClick={onToggleNav}
-    />
+    <div className={classes.hamburger}>
+      <FontAwesomeIcon icon={faBars} onClick={onToggleNav} />
+    </div>
   );
 }

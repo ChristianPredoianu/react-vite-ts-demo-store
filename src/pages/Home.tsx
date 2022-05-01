@@ -1,3 +1,5 @@
+import classes from '@/pages/Home.module.scss';
+
 export default function Home() {
-  return <h1></h1>;
+  return <></>;
 }

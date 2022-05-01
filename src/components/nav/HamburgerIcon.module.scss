@@ -1,7 +1,7 @@
 @use '@/sass/abstracts' as *;
 
 .hamburger {
-  @include position($pos: absolute, $top: 4rem, $right: 4rem);
+  margin-right: 2rem;
   font-size: 3rem;
 
   @include respond(sm) {

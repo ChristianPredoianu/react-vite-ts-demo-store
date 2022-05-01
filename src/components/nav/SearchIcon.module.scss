@@ -1,0 +1,9 @@
+@use '@/sass/abstracts' as *;
+
+.searchIcon {
+  font-size: 1.5rem;
+
+  @include respond(sm) {
+    margin-right: 2rem;
+  }
+}

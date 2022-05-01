@@ -1,10 +1,7 @@
+import { forwardRef } from 'react';
 import classes from '@/components/nav/NavLinks.module.scss';
 
-interface navLinksProps {
-  ref: React.Ref<HTMLUListElement>;
-}
-
-export default function NavLinks({ ref }: navLinksProps) {
+export default forwardRef<HTMLUListElement>(function NavLinks(props, ref) {
   return (
     <ul className={classes.navLinks} ref={ref}>
       <li className={classes.navLink}>Home</li>
@@ -13,4 +10,4 @@ export default function NavLinks({ ref }: navLinksProps) {
       <li className={classes.navLink}>Contact</li>
     </ul>
   );
-}
+});

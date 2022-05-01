@@ -1,13 +1,18 @@
 @use '@/sass/abstracts' as *;
 
 .navLinks {
+  @include position($pos: absolute, $top: 100%);
+  width: 100%;
   height: auto;
-  margin-top: 2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 
   @include respond(sm) {
     @include flex-config($direction: row, $align: center);
+    position: initial;
     width: 40%;
     margin-top: 0;
+    border: none;
   }
 }
 

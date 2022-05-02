@@ -1,0 +1,10 @@
+@use '@/sass/abstracts' as *;
+
+.logo {
+  width: 12rem;
+  cursor: pointer;
+
+  @include respond(md) {
+    width: 15rem;
+  }
+}

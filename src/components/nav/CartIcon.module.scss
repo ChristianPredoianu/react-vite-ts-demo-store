@@ -1,0 +1,15 @@
+@use '@/sass/abstracts' as *;
+
+.cart {
+  @include flex-config($align: center);
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  margin-right: 2rem;
+}
+
+.cartCount {
+  margin-left: 1rem;
+  background-color: var(--clr-main-green);
+  color: var(--clr-light-gray);
+  padding: 0.5rem 1rem;
+  border-radius: 10%;
+}

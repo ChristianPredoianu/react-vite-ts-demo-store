@@ -7,7 +7,6 @@ interface searchProps {
 }
 
 export default function SearchIcon({ onOpenSearch }: searchProps) {
-  console.log(classes.searchIcon);
   return (
     <div className={classes.searchIcon}>
       <FontAwesomeIcon icon={faSearch} onClick={onOpenSearch} />

@@ -1,16 +1,24 @@
 @use '@/sass/abstracts' as *;
 
+.header {
+  position: relative;
+}
+
 .nav {
-  display: block;
-  padding: 2rem 0;
+  @include flex-config($justify: space-between, $align: center);
+  padding: 1rem 0;
 
   @include respond(sm) {
-    @include flex-config($justify: space-between, $align: center);
+    @include flex-config(
+      $direction: row,
+      $justify: space-between,
+      $align: center
+    );
   }
 }
 
-.logo {
-  width: 10rem;
+.icons {
+  @include flex-config($justify: space-around, $align: center);
 }
 
 .slideEnter {

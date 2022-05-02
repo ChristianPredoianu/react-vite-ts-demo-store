@@ -15,7 +15,7 @@ export default function SearchModal({ onCloseSearchModal }: searchModalProps) {
       )}
 
       {ReactDOM.createPortal(
-        <SearchModalOverlay />,
+        <SearchModalOverlay onCloseSearchModal={onCloseSearchModal} />,
         document.getElementById('overlay-root') as HTMLElement
       )}
     </>

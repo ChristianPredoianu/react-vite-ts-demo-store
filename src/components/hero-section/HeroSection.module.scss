@@ -1,0 +1,60 @@
+@use '@/sass/abstracts' as *;
+
+.heroCta {
+  margin: 3rem 0;
+  padding: 0 1rem;
+
+  @include respond(sm) {
+    padding: 0;
+  }
+
+  @include respond(md) {
+    width: 50%;
+  }
+}
+
+.heroHeading {
+  font-size: clamp(2.5rem, 2vw, 3rem);
+}
+
+.heroSubHeading {
+  font-size: clamp(2.5rem, 2vw, 3rem);
+}
+
+.headingSpan {
+  font-size: clamp(2.8rem, 2vw, 3.3rem);
+  color: var(--clr-main-green);
+  filter: drop-shadow(0 0 0.2rem var(--clr-main-green));
+}
+
+.heroParagraph {
+  font-size: clamp(1.7rem, 2vw, 2.3rem);
+  padding: 2rem 0;
+}
+
+.ctaBtn {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--clr-main-green);
+  color: var(--clr-light-gray);
+  border: none;
+  border-radius: 5%;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  box-shadow: var(--box-shadow);
+
+  &:hover {
+    transform: translateY(3px);
+    background-color: #015f01;
+    color: #fff;
+    transform: scale(1.05);
+  }
+}
+
+.swiperContainer {
+  padding-bottom: 30rem;
+
+  @include respond(md) {
+    padding-bottom: 0;
+  }
+}

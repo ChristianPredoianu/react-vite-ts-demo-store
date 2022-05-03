@@ -1,0 +1,12 @@
+@use '@/sass/abstracts' as *;
+
+.circle {
+  @include position($pos: absolute, $bottom: -20rem, $right: -20rem);
+  display: inline-block;
+  width: 40rem;
+  padding: 20rem;
+  background-color: var(--clr-main-green);
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 500;
+}

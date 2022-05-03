@@ -1,0 +1,27 @@
+@use '@/sass/abstracts' as *;
+
+.socialMedia {
+  @include position($pos: absolute, $top: 30%, $right: 0);
+  @include flex-config($direction: column);
+  gap: 2rem;
+  background-color: var(--clr-main-green);
+  color: var(--clr-light-gray);
+  font-size: clamp(2rem, 2vw, 3rem);
+  padding: 2rem 1rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  z-index: 100;
+  box-shadow: var(--box-shadow);
+
+  @include respond(md) {
+    top: 20%;
+  }
+}
+
+.icon {
+  transition: transform 0.2s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

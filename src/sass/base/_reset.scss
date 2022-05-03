@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+#overflow-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
 #root {
   min-height: 100vh;
 }

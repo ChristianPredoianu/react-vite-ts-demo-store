@@ -2,63 +2,9 @@
 
 .main {
   @include flex-config($direction: column);
-  position: relative;
 
   @include respond(md) {
+    @include flex-config($direction: row, $align: center);
     min-height: 70vh;
-    flex-direction: row;
-    align-items: center;
   }
-}
-
-.heroCta {
-  margin: 3rem 0;
-  padding: 0 1rem;
-
-  @include respond(sm) {
-    padding: 0;
-  }
-
-  @include respond(md) {
-    width: 50%;
-  }
-}
-
-.heroHeading {
-  font-size: clamp(2.5rem, 2vw, 3rem);
-}
-
-.heroSubHeading {
-  font-size: clamp(2.5rem, 2vw, 3rem);
-}
-
-.headingSpan {
-  font-size: clamp(2.8rem, 2vw, 3.3rem);
-  color: var(--clr-main-green);
-}
-
-.heroParagraph {
-  font-size: clamp(1.7rem, 2vw, 2.3rem);
-  padding: 2rem 0;
-}
-
-.ctaBtn {
-  font-size: 2rem;
-  padding: 1rem 2rem;
-  background-color: var(--clr-main-green);
-  color: var(--clr-light-gray);
-  border: none;
-  border-radius: 5%;
-  cursor: pointer;
-}
-
-.circle {
-  @include position($pos: absolute, $bottom: -15rem, $right: 0);
-  display: inline-block;
-  width: 40rem;
-  padding: 20rem;
-  background-color: var(--clr-main-green);
-  border-radius: 50%;
-  overflow: hidden;
-  z-index: 500;
 }

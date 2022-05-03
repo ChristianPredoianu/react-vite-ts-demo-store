@@ -10,37 +10,33 @@ import SwiperContent from '@/components/swiper/SwiperContent';
 
 import '@/components/swiper/VerticalSwiper.scss';
 
-import { Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper';
 
 export default function VerticalSwiper() {
   const content = [
-    { img: GreenWomanImg },
-    { img: WomanImg },
-    { img: GreenManImg },
+    { id: 1, img: GreenWomanImg },
+    { id: 2, img: WomanImg },
+    { id: 3, img: GreenManImg },
   ];
   return (
     <div className="swiper-container">
       <Swiper
         direction={'vertical'}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
         {content.map((item) => (
-          <SwiperSlide>
-            <SwiperContent key={item.img} img={item.img} />
+          <SwiperSlide key={item.id}>
+            <SwiperContent img={item.img} />
           </SwiperSlide>
         ))}
-
-        {/*   <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>  */}
       </Swiper>
     </div>
   );

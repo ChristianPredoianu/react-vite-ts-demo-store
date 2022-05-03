@@ -4,6 +4,9 @@
   @include position($pos: absolute, $top: 100%, $left: 0);
   width: 100%;
   height: auto;
+  background-color: var(--clr-main-green);
+  color: var(--clr-light-gray);
+  padding: 2rem 0;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 
@@ -15,14 +18,34 @@
     );
     position: initial;
     width: 40%;
-    margin-top: 0;
+    background-color: transparent;
+    color: var(--clr-dark);
+    padding: 0;
     border: none;
   }
 }
 
 .navLink {
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 1vw, 2rem);
   text-align: center;
-  padding: 2rem 0;
   cursor: pointer;
+  padding: 1rem;
+
+  @include respond(md) {
+    padding: 0;
+  }
+}
+
+.activeLink {
+  background-color: var(--clr-main-green);
+  color: #f3c28a;
+
+  @include respond(sm) {
+    color: var(--clr-light-gray);
+    border-radius: 5rem;
+  }
+
+  @include respond(md) {
+    padding: 1rem 2rem;
+  }
 }

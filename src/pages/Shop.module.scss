@@ -1,0 +1,47 @@
+@use '@/sass/abstracts' as *;
+
+.heroImgContainer {
+  position: relative;
+  min-height: 60vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('@/assets/girl-fields.jpg');
+  color: var(--clr-light-gray);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.heroHeadings {
+  @include position($pos: absolute, $top: 50%, $left: 50%);
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  text-align: center;
+}
+
+.heroPrimaryHeading {
+  font-size: clamp(2.5rem, 2.5vw, 10rem);
+  padding: 1rem 0;
+  letter-spacing: 0.5rem;
+}
+
+.heroSubHeading {
+  font-size: clamp(1.8rem, 1.5vw, 7rem);
+  letter-spacing: 0.3rem;
+}
+
+.heroSubHeading {
+  color: rgb(130, 255, 130);
+}
+
+.main {
+  position: relative;
+  display: grid;
+  grid-gap: 10rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 500px));
+  justify-content: center;
+  margin: 10rem 0;
+}
+
+.loadingSpinner {
+  @include position($pos: absolute, $top: 0, $left: 50%);
+}

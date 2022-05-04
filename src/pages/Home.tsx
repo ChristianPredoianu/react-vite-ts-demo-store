@@ -1,6 +1,5 @@
 import HeroSection from '@/components/hero-section/HeroSection';
 import classes from '@/pages/Home.module.scss';
-import classNames from 'classnames';
 
 export default function Home() {
   return (

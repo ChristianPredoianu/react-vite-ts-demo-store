@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
 export interface apiResponse {
-  data: any;
+  data: [];
   error: any;
-  isLoading: Boolean;
+  isLoading: boolean;
 }
 
 export function useApi(url: string): apiResponse {

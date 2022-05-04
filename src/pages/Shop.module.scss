@@ -34,11 +34,8 @@
 }
 
 .main {
+  @include grid;
   position: relative;
-  display: grid;
-  grid-gap: 10rem;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 500px));
-  justify-content: center;
   margin: 10rem 0;
 }
 

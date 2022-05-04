@@ -1,0 +1,17 @@
+@use '@/sass/abstracts' as *;
+
+.primaryHeading {
+  margin: 10rem 0;
+  text-align: center;
+}
+
+.main {
+  @include grid;
+  text-align: center;
+}
+
+.pagination {
+  @include flex-config($justify: center);
+  font-size: 2rem;
+  padding: 10rem 0;
+}

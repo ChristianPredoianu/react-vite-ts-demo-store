@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import classes from '@/components/cards/CategoryCard.module.scss';
 
 interface categoryCardProps {
@@ -10,10 +11,14 @@ export default function CategoryCard({ category, img }: categoryCardProps) {
     category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
-    <div className={classes.card}>
-      <div className={classes.cardOverlay}></div>
-      <h3 className={classes.cardHeading}>{uppercaseCategory}</h3>
-      <img src={img} alt="category" className={classes.cardImg} />
-    </div>
+    <>
+      <Link to={`/shop/${category}`}>
+        <div className={classes.card}>
+          <div className={classes.cardOverlay}></div>
+          <h3 className={classes.cardHeading}>{uppercaseCategory}</h3>
+          <img src={img} alt="category" className={classes.cardImg} />
+        </div>
+      </Link>
+    </>
   );
 }

@@ -28,10 +28,13 @@
 .navLink {
   font-size: clamp(1.5rem, 1vw, 2rem);
   text-align: center;
-  cursor: pointer;
   padding: 1rem;
+  cursor: pointer;
 
   @include respond(md) {
+    letter-spacing: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
     padding: 0;
   }
 }

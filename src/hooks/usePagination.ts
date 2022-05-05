@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export function usePagination(data: []) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -7,7 +7,28 @@ export function usePagination(data: []) {
   const indexOfLastPost = currentPage * productsPerPage;
   const indexOfFirstPost = indexOfLastPost - productsPerPage;
   const currentProducts = data.slice(indexOfFirstPost, indexOfLastPost);
-  console.log(data);
 
-  return { currentProducts, productsPerPage, currentPage, setCurrentPage };
+  function paginationHandler(pageNumber: number) {
+    setCurrentPage(pageNumber);
+  }
+
+  function prevPageHandler() {
+    if (currentPage !== 1) setCurrentPage((prevState) => (prevState -= 1));
+  }
+
+  function nextPageHandler(pageNumbers: number[]) {
+    const lastPage = pageNumbers.length;
+
+    if (currentPage !== lastPage)
+      setCurrentPage((prevState) => (prevState += 1));
+  }
+
+  return {
+    currentProducts,
+    productsPerPage,
+    currentPage,
+    paginationHandler,
+    prevPageHandler,
+    nextPageHandler,
+  };
 }

@@ -34,8 +34,6 @@ export default function Shop() {
     return categories.push({ category: category, img: imgArray[index] });
   });
 
-  console.log(categories);
-
   let output;
 
   isLoading

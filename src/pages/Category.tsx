@@ -1,15 +1,17 @@
-import classes from '@/pages/Category.module.scss';
+import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useApi, apiResponse } from '@/hooks/useApi';
 import { usePagination } from '@/hooks/usePagination';
+import CategoryHeroImg from '@/components/ui/CategoryHeroImg';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import ProductCard from '@/components/cards/ProductCard';
 import Pagination from '@/components/ui/Pagination';
+import classes from '@/pages/Category.module.scss';
 
 interface product {
   image: string;
   price: number;
-  rating: object;
+  rating: { rate: number; count: number };
   title: string;
   id: number;
   description: string;
@@ -18,14 +20,22 @@ interface product {
 export default function Category() {
   const { category } = useParams();
 
+  const heroDiv = useRef<HTMLDivElement>(null);
+
   const { data, error, isLoading }: apiResponse = useApi(
     category === 'all products'
       ? `https://fakestoreapi.com/products`
       : `https://fakestoreapi.com/products/category/${category}`
   );
 
-  const { currentProducts, productsPerPage, currentPage, setCurrentPage } =
-    usePagination(data);
+  const {
+    currentProducts,
+    productsPerPage,
+    currentPage,
+    paginationHandler,
+    prevPageHandler,
+    nextPageHandler,
+  } = usePagination(data);
 
   let uppercaseCategory;
   if (category) {
@@ -33,7 +43,6 @@ export default function Category() {
   }
 
   let productCardsOutput;
-  console.log(currentPage + 'currentPage');
 
   if (isLoading) {
     productCardsOutput = (
@@ -47,28 +56,24 @@ export default function Category() {
     ));
   }
 
-  function paginationHandler(pageNumber: number) {
-    setCurrentPage(pageNumber);
-  }
-
-  function nextPageHandler() {
-    if (currentPage !== 1) setCurrentPage((prevState) => (prevState -= 1));
-  }
-
   return (
-    <div className="container">
-      <h1 className={classes.primaryHeading}>{uppercaseCategory}</h1>
-      <div className={classes.main}>{productCardsOutput}</div>
-      <div className={classes.pagination}>
-        {!isLoading && (
-          <Pagination
-            productsPerPage={productsPerPage}
-            totalProducts={data.length}
-            onPaginate={paginationHandler}
-            onNextPage={nextPageHandler}
-          />
-        )}
+    <>
+      <CategoryHeroImg ref={heroDiv} category={category} />
+      <div className="container">
+        <div className={classes.main}>{productCardsOutput}</div>
+        <div className={classes.pagination}>
+          {!isLoading && (
+            <Pagination
+              productsPerPage={productsPerPage}
+              totalProducts={data.length}
+              currentPage={currentPage}
+              onPaginate={paginationHandler}
+              onPrevPage={prevPageHandler}
+              onNextPage={nextPageHandler}
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

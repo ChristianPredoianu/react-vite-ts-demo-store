@@ -1,0 +1,42 @@
+@use '@/sass/abstracts' as *;
+
+.heroImgContainer {
+  position: relative;
+  min-height: 60vh;
+  color: var(--clr-light-gray);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.heroHeadings {
+  @include position($pos: absolute, $top: 50%, $left: 50%);
+  transform: translate(-50%, -50%);
+  z-index: 500;
+  text-align: center;
+}
+
+.allProducts {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('@/assets/clothes.jpg');
+}
+
+.electronics {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('@/assets/electronics.jpg');
+}
+
+.jewlery {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('@/assets/jewlery.jpg');
+}
+
+.mens {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('@/assets/mens-clothing.jpg');
+}
+
+.womens {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('@/assets/womens-clothing.jpg');
+}

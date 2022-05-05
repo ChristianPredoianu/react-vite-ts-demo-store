@@ -52,8 +52,44 @@
 }
 
 .input {
-  width: 5rem;
+  width: 100%;
   text-align: center;
   padding: 0.5rem 0;
   font-size: 2rem;
+}
+
+.ratingsContainer {
+  position: relative;
+  width: 100%;
+  background-color: var(--clr-light-gray);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+.ratings {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: var(--clr-main-green);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.ratingScore {
+  position: relative;
+  font-size: 1.5rem;
+  text-align: start;
+  padding: 1rem 0;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10rem;
+    border-bottom: 1px solid black;
+    background-color: red;
+  }
 }

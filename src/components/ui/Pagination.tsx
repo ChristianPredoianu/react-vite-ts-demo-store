@@ -1,43 +1,65 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import classes from '@/components/ui/Pagination.module.scss';
+import classNames from 'classnames';
 
 interface paginationProps {
   productsPerPage: number;
   totalProducts: number;
+  currentPage: number;
   onPaginate: (number: number) => void;
-  onNextPage: () => void;
+  onPrevPage: () => void;
+  onNextPage: (pageNumber: number[]) => void;
 }
 
 export default function Pagination({
   productsPerPage,
   totalProducts,
+  currentPage,
   onPaginate,
+  onPrevPage,
   onNextPage,
 }: paginationProps) {
-  const pageNumbers = [];
+  const pageNumbers: number[] = [];
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {
     pageNumbers.push(i);
   }
-  console.log(pageNumbers);
+
+  const backArrow = currentPage !== 1 && (
+    <a href="#!" onClick={onPrevPage}>
+      <FontAwesomeIcon icon={faArrowLeft} className={classes.arrowLeft} />
+    </a>
+  );
+
+  const pages = pageNumbers.map((number) => (
+    <a
+      key={number}
+      onClick={() => onPaginate(number)}
+      href="#!"
+      className={classes.pageLink}
+    >
+      <li
+        key={number}
+        className={classNames(classes.pageItem, {
+          [classes.activePage]: currentPage === number,
+        })}
+      >
+        {number}
+      </li>
+    </a>
+  ));
+
+  const forwardArrow = pageNumbers.at(-1) !== currentPage && (
+    <a href="#!" onClick={() => onNextPage(pageNumbers)}>
+      <FontAwesomeIcon icon={faArrowRight} className={classes.arrowRight} />
+    </a>
+  );
   return (
     <ul className={classes.paginationList}>
-      <a href="#" onClick={onNextPage}>
-        <FontAwesomeIcon icon={faArrowLeft} className={classes.arrowLeft} />
-      </a>
-      {pageNumbers.map((number) => (
-        <a
-          onClick={() => onPaginate(number)}
-          href="#"
-          className={classes.pageLink}
-        >
-          <li key={number} className={classes.pageItem}>
-            {number}
-          </li>
-        </a>
-      ))}
-      <FontAwesomeIcon icon={faArrowRight} className={classes.arrowRight} />
+      {backArrow}
+      {pages}
+      {forwardArrow}
     </ul>
   );
 }

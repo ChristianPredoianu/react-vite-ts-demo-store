@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { ChangeEvent, useState, useRef } from 'react';
+import RatingBar from '@/components/ui/RatingBar';
+import ProductInputAmount from '@/components/inputs/ProductInputAmount';
 import classes from '@/components/cards/ProductCard.module.scss';
 
 interface productCardProps {
@@ -14,57 +14,76 @@ interface productCardProps {
 }
 
 export default function ProductCard({ product }: productCardProps) {
+  const [productAmount, setProductAmount] = useState(1);
+
   const { image, price, rating, title, description } = product;
 
-  const stars = useRef<HTMLDivElement>(null);
+  const ratingBarRef = useRef<HTMLDivElement>(null);
 
-  console.log(rating);
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    if (e.target.value === '') setProductAmount(1);
+    setProductAmount(+e.target.value);
+  }
 
-  const starTotal = 5;
+  function increaseCountHandler() {
+    setProductAmount((prevState) => (prevState += 1));
+  }
 
-  useEffect(() => {
-    const starPercentage = (rating.rate / starTotal) * 100;
-    const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-    console.log(starPercentageRounded);
-    if (stars.current) {
-      stars.current.style.width = starPercentageRounded;
-    }
-  }, []);
+  function decreaseCountHandler() {
+    if (productAmount >= 2) setProductAmount((prevState) => (prevState -= 1));
+  }
 
-  function increaseCountHandler() {}
+  const cardImg = (
+    <div className={classes.cardImg}>
+      <img src={image} alt="product" />
+    </div>
+  );
 
-  function decreaseCountHandler() {}
+  const productTitle = <h2 className={classes.productTitle}>{title}</h2>;
+
+  const productDescription = (
+    <p className={classes.productDescription}>{description}</p>
+  );
+
+  const productRating = (
+    <div className={classes.ratingContainer}>
+      <p className={classes.rating}>{`Rating: ${rating.rate} / 5`}</p>
+    </div>
+  );
+
+  const ratingBar = (
+    <div className={classes.ratingsContainer}>
+      <RatingBar rating={rating} ref={ratingBarRef} />
+    </div>
+  );
+
+  const productPrice = <p className={classes.price}>{`${price} $`}</p>;
+
+  const cta = (
+    <div className={classes.cta}>
+      <button className={classes.addBtn}>Add to cart</button>
+      <ProductInputAmount
+        productAmount={productAmount}
+        onInputChange={handleChange}
+        onDecreaseCount={decreaseCountHandler}
+        onIncreaseCount={increaseCountHandler}
+      />
+    </div>
+  );
 
   return (
     <div className={classes.card}>
-      <div className={classes.cardImg}>
-        <img src={image} alt="product" />
-      </div>
+      {cardImg}
       <div className={classes.cardInfo}>
-        <div className={classes.descriptionContainer}>
-          <h2 className={classes.productTitle}>{title}</h2>
-          <p className={classes.productDescription}>{description}</p>
-          <div
-            className={classes.ratingScore}
-          >{`Rating: ${rating.rate} / 5`}</div>
-          <div className={classes.ratingsContainer}>
-            <div className={classes.ratings} ref={stars}></div>
-          </div>
+        <div className={classes.flexible}>
+          <div className={classes.descriptionContainer}></div>
+          {productTitle}
+          {productDescription}
         </div>
-        <div className={classes.cta}>
-          <button className={classes.addBtn}>Add to cart</button>
-          <div className={classes.inputContainer}>
-            <FontAwesomeIcon
-              icon={faArrowLeft}
-              onClick={decreaseCountHandler}
-            />
-            <input type="number" className={classes.input}></input>
-            <FontAwesomeIcon
-              icon={faArrowRight}
-              onClick={increaseCountHandler}
-            />
-          </div>
-        </div>
+        {productRating}
+        {ratingBar}
+        {productPrice}
+        {cta}
       </div>
     </div>
   );

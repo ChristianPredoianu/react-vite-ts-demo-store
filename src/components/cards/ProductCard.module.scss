@@ -2,39 +2,33 @@
 
 .card {
   @include flex-config($direction: column, $align: center, $justify: center);
-  padding-top: 3rem;
+  position: relative;
+  padding: 5rem;
   border-radius: 2rem;
   box-shadow: var(--box-shadow);
-
-  @include respond(md) {
-    @include flex-config($direction: row, $justify: space-between);
-    padding: 0 2rem;
-  }
 }
 
 .cardImg {
-  width: 30%;
+  width: 40%;
 }
 
 .cardInfo {
   @include flex-config($direction: column, $align: center, $justify: center);
   height: 100%;
-
-  @include respond(md) {
-    width: 50%;
-  }
+  text-align: left;
 }
 
 .descriptionContainer {
-  padding: 8rem;
-
-  @include respond(md) {
-    padding: 2rem;
-  }
+  padding: 2rem;
 }
 
 .productTitle {
   padding: 1rem 0;
+}
+
+.productDescription {
+  font-size: 1.5rem;
+  flex: 1;
 }
 
 .cta {
@@ -45,51 +39,46 @@
     justify-content: space-around;
   }
 }
-
-.inputContainer {
-  @include flex-config($align: center);
-  margin-left: 2rem;
-}
-
-.input {
-  width: 100%;
-  text-align: center;
-  padding: 0.5rem 0;
-  font-size: 2rem;
+.flexible {
+  flex: 1;
 }
 
 .ratingsContainer {
   position: relative;
   width: 100%;
-  background-color: var(--clr-light-gray);
+  background-color: #505050;
   padding: 1rem;
   border-radius: 1rem;
   margin-top: 1rem;
 }
 
-.ratings {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  background-color: var(--clr-main-green);
-  padding: 1rem;
-  border-radius: 1rem;
-}
-
-.ratingScore {
+.ratingContainer {
   position: relative;
   font-size: 1.5rem;
   text-align: start;
+  margin-top: 2rem;
   padding: 1rem 0;
 
   &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    @include pseudo($bottom: 0, $left: 0);
     width: 10rem;
-    border-bottom: 1px solid black;
-    background-color: red;
+    border-bottom: 1px solid var(--clr-dark);
   }
+}
+
+.rating {
+  font-weight: 700;
+}
+
+.price {
+  font-size: 2rem;
+  padding: 2rem 0;
+}
+
+.addBtn {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--clr-main-green);
+  color: var(--clr-light-gray);
+  border: none;
 }

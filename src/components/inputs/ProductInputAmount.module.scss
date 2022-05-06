@@ -1,0 +1,19 @@
+@use '@/sass/abstracts' as *;
+
+.inputContainer {
+  @include flex-config($align: center);
+  margin-left: 2rem;
+}
+
+.input {
+  width: 4rem;
+  font-size: 2.5rem;
+  text-align: center;
+  border: none;
+}
+
+.arrowLeft,
+.arrowRight {
+  font-size: 1.8rem;
+  cursor: pointer;
+}

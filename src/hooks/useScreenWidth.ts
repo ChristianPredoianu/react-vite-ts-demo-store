@@ -4,9 +4,9 @@ export default function useScreenWidth() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const changeWidth = () => {
+    function changeWidth() {
       setScreenWidth(window.innerWidth);
-    };
+    }
 
     window.addEventListener('resize', changeWidth);
 

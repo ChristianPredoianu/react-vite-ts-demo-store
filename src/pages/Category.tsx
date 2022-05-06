@@ -20,7 +20,7 @@ interface product {
 export default function Category() {
   const { category } = useParams();
 
-  const heroDiv = useRef<HTMLDivElement>(null);
+  const heroDivRef = useRef<HTMLDivElement>(null);
 
   const { data, error, isLoading }: apiResponse = useApi(
     category === 'all products'
@@ -58,7 +58,7 @@ export default function Category() {
 
   return (
     <>
-      <CategoryHeroImg ref={heroDiv} category={category} />
+      <CategoryHeroImg ref={heroDivRef} category={category} />
       <div className="container">
         <div className={classes.main}>{productCardsOutput}</div>
         <div className={classes.pagination}>

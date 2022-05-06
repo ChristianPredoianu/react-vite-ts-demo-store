@@ -22,7 +22,10 @@
 }
 
 .main {
-  @include grid;
+  display: grid;
+  grid-gap: 10rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 450px));
+  justify-content: center;
   padding: 15rem 0 5rem 0;
   text-align: center;
 }

@@ -1,9 +1,4 @@
 import { forwardRef } from 'react';
-import ElectronicsImg from '@/assets/electronics.jpg';
-import JewleryImg from '@/assets/jewlery.jpg';
-import MensClothingImg from '@/assets/mens-clothing.jpg';
-import WomensClothingImg from '@/assets/womens-clothing.jpg';
-import ClothesImg from '@/assets/clothes.jpg';
 import classes from '@/components/ui/CategoryHeroImg.module.scss';
 
 interface categoryHeroImgProps {

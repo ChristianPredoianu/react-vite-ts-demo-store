@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useApi, apiResponse } from '@/hooks/useApi';
 import { usePagination } from '@/hooks/usePagination';
 import CategoryHeroImg from '@/components/ui/CategoryHeroImg';
+import SocialMediaTab from '@/components/ui/SocialMediaTab';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import ProductCard from '@/components/cards/ProductCard';
 import Pagination from '@/components/ui/Pagination';
@@ -59,8 +60,13 @@ export default function Category() {
   return (
     <>
       <CategoryHeroImg ref={heroDivRef} category={category} />
+      {!isLoading && (
+        <div className={classes.social}>
+          <SocialMediaTab />
+        </div>
+      )}
       <div className="container">
-        <div className={classes.main}>{productCardsOutput}</div>
+        <main className={classes.main}>{productCardsOutput}</main>
         <div className={classes.pagination}>
           {!isLoading && (
             <Pagination

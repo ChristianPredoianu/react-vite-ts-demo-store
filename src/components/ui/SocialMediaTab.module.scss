@@ -1,7 +1,6 @@
 @use '@/sass/abstracts' as *;
 
 .socialMedia {
-  @include position($pos: absolute, $top: 30%, $right: 0);
   @include flex-config($direction: column);
   gap: 2rem;
   background-color: var(--clr-main-green);

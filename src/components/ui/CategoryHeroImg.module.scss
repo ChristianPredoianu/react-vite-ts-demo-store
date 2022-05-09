@@ -1,6 +1,6 @@
 @use '@/sass/abstracts' as *;
 
-.heroImgContainer {
+.imgContainer {
   position: relative;
   min-height: 60vh;
   color: var(--clr-light-gray);
@@ -9,7 +9,7 @@
   background-size: cover;
 }
 
-.heroHeadings {
+.primaryHeading {
   @include position($pos: absolute, $top: 50%, $left: 50%);
   transform: translate(-50%, -50%);
   z-index: 500;

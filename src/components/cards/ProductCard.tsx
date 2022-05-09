@@ -1,36 +1,37 @@
-import { ChangeEvent, useState, useRef } from 'react';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useInputAmount } from '@/hooks/useInputAmount';
 import RatingBar from '@/components/ui/RatingBar';
 import ProductInputAmount from '@/components/inputs/ProductInputAmount';
+import CtaBtn from '@/components/buttons/CtaBtn';
 import classes from '@/components/cards/ProductCard.module.scss';
 
 interface productCardProps {
   product: {
+    id: number;
     image: string;
     price: number;
     rating: { rate: number; count: number };
     title: string;
-    description: string;
   };
 }
 
 export default function ProductCard({ product }: productCardProps) {
-  const [productAmount, setProductAmount] = useState(1);
+  const { id, image, price, rating, title } = product;
 
-  const { image, price, rating, title, description } = product;
+  const {
+    productAmount,
+    handleChange,
+    increaseCountHandler,
+    decreaseCountHandler,
+  } = useInputAmount();
+
+  const navigate = useNavigate();
 
   const ratingBarRef = useRef<HTMLDivElement>(null);
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    if (e.target.value === '') setProductAmount(1);
-    setProductAmount(+e.target.value);
-  }
-
-  function increaseCountHandler() {
-    setProductAmount((prevState) => (prevState += 1));
-  }
-
-  function decreaseCountHandler() {
-    if (productAmount >= 2) setProductAmount((prevState) => (prevState -= 1));
+  function goToProductDetails() {
+    navigate(`/shop/product-details/${id}`);
   }
 
   const cardImg = (
@@ -40,10 +41,6 @@ export default function ProductCard({ product }: productCardProps) {
   );
 
   const productTitle = <h2 className={classes.productTitle}>{title}</h2>;
-
-  const productDescription = (
-    <p className={classes.productDescription}>{description}</p>
-  );
 
   const productRating = (
     <div className={classes.ratingContainer}>
@@ -61,7 +58,12 @@ export default function ProductCard({ product }: productCardProps) {
 
   const cta = (
     <div className={classes.cta}>
-      <button className={classes.addBtn}>Add to cart</button>
+      <div className={classes.buttons}>
+        {/*     <CtaBtn color={'blue'}>Add to cart</CtaBtn> */}
+        <CtaBtn color={'green'} handleClick={goToProductDetails}>
+          More info
+        </CtaBtn>
+      </div>
       <ProductInputAmount
         productAmount={productAmount}
         onInputChange={handleChange}
@@ -78,7 +80,6 @@ export default function ProductCard({ product }: productCardProps) {
         <div className={classes.flexible}>
           <div className={classes.descriptionContainer}></div>
           {productTitle}
-          {productDescription}
         </div>
         {productRating}
         {ratingBar}

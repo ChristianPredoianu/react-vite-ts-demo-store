@@ -21,7 +21,9 @@ export default function HeroSection() {
       <div className={classes.swiperContainer}>
         <VerticalSwiper />
       </div>
-      <SocialMediaTab />
+      <div className={classes.social}>
+        <SocialMediaTab />
+      </div>
       <Circle />
     </>
   );

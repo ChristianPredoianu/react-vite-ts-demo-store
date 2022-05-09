@@ -30,25 +30,26 @@ export default function Shop() {
   const categories = [{ category: 'all products', img: ProductsImg }];
 
   //Array of obj with images for every category. Images not provided for each category from API
-  data.map((category, index) => {
+  data.map((category: string, index: number) => {
     return categories.push({ category: category, img: imgArray[index] });
   });
 
   let output;
 
-  isLoading
-    ? (output = (
-        <div className={classes.loadingSpinner}>
-          <LoadingSpinner />
-        </div>
-      ))
-    : (output = categories.map((category: categoryObject) => (
-        <CategoryCard
-          key={category.category}
-          category={category.category}
-          img={category.img}
-        />
-      )));
+  if (isLoading) {
+    output = (
+      <div className={classes.loadingSpinner}>
+        <LoadingSpinner />
+      </div>
+    );
+  } else
+    output = categories.map((category: categoryObject) => (
+      <CategoryCard
+        key={category.category}
+        category={category.category}
+        img={category.img}
+      />
+    ));
 
   return (
     <>

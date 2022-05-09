@@ -34,10 +34,8 @@ export default forwardRef<HTMLDivElement, categoryHeroImgProps>(
     }
 
     return (
-      <div className={classes.heroImgContainer} ref={ref}>
-        <div className={classes.heroHeadings}>
-          <h1 className={classes.heroPrimaryHeading}>{uppercaseCategory}</h1>
-        </div>
+      <div className={classes.imgContainer} ref={ref}>
+        <h1 className={classes.primaryHeading}>{uppercaseCategory}</h1>
       </div>
     );
   }

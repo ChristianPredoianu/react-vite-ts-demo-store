@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout';
 import Home from '@/pages/Home';
 import Shop from '@/pages/Shop';
 import Category from '@/pages/Category';
+import ProductDetails from '@/pages/ProductDetails';
 import '@/sass/main.scss';
 
 function App(): JSX.Element {
@@ -13,6 +14,7 @@ function App(): JSX.Element {
           <Route index element={<Home />} />
           <Route path="shop" element={<Shop />} />
           <Route path="shop/:category" element={<Category />} />
+          <Route path="shop/product-details/:id" element={<ProductDetails />} />
         </Route>
       </Routes>
     </>

@@ -20,6 +20,9 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
+body {
+  position: relative;
+}
 
 /* Remove list styles on ul, ol elements  default styling will be removed */
 ul,

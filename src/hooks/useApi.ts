@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export interface apiResponse {
-  data: [];
+  data: any;
   error: any;
   isLoading: boolean;
 }

@@ -3,19 +3,19 @@ import Backdrop from '@/components/modals/Backdrop';
 import SearchModalOverlay from '@/components/modals/search-modal/SearchModalOverlay';
 
 interface searchModalProps {
-  onCloseSearchModal: () => void;
+  onCloseModal: () => void;
 }
 
-export default function SearchModal({ onCloseSearchModal }: searchModalProps) {
+export default function SearchModal({ onCloseModal }: searchModalProps) {
   return (
     <>
       {ReactDOM.createPortal(
-        <Backdrop onClose={onCloseSearchModal} />,
+        <Backdrop onClose={onCloseModal} />,
         document.getElementById('backdrop-root') as HTMLElement
       )}
 
       {ReactDOM.createPortal(
-        <SearchModalOverlay onCloseSearchModal={onCloseSearchModal} />,
+        <SearchModalOverlay onCloseModal={onCloseModal} />,
         document.getElementById('overlay-root') as HTMLElement
       )}
     </>

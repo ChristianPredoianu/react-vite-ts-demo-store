@@ -3,17 +3,17 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import classes from '@/components/modals/search-modal/SearchModalOverlay.module.scss';
 
 interface searchModalOverlayProps {
-  onCloseSearchModal: () => void;
+  onCloseModal: () => void;
 }
 
 export default function SearchModalOverlay({
-  onCloseSearchModal,
+  onCloseModal,
 }: searchModalOverlayProps) {
   const closeIcon = (
     <FontAwesomeIcon
       icon={faXmark}
       className={classes.close}
-      onClick={onCloseSearchModal}
+      onClick={onCloseModal}
     />
   );
 

@@ -21,10 +21,6 @@
   text-align: center;
 }
 
-.social {
-  @include position($pos: absolute, $top: 30%, $right: 0);
-}
-
 .main {
   position: relative;
   display: grid;

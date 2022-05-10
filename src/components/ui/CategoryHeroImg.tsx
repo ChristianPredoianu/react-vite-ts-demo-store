@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import SocialMediaTab from '@/components/ui/SocialMediaTab';
 import classes from '@/components/ui/CategoryHeroImg.module.scss';
 
 interface categoryHeroImgProps {
@@ -35,6 +36,9 @@ export default forwardRef<HTMLDivElement, categoryHeroImgProps>(
 
     return (
       <div className={classes.imgContainer} ref={ref}>
+        <div className={classes.social}>
+          <SocialMediaTab />
+        </div>
         <h1 className={classes.primaryHeading}>{uppercaseCategory}</h1>
       </div>
     );

@@ -61,5 +61,5 @@
 
 .social {
   @include position($pos: absolute, $top: 30%, $right: 0);
-  z-index: 100;
+  z-index: 99;
 }

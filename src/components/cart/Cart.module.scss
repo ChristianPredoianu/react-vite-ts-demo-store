@@ -1,0 +1,38 @@
+@use '@/sass/abstracts' as *;
+.cartCard {
+  background-color: white;
+  width: 100%;
+  padding: 5rem 2rem;
+}
+.cartItem {
+  @include flex-config($justify: space-between, $align: center);
+  padding: 2rem 0;
+}
+
+.img {
+  width: 40%;
+}
+
+.productAmount {
+  margin-right: 2rem;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+
+  &:not(:first-child) {
+    margin-top: 1rem;
+  }
+}
+
+.ctaBtn {
+  width: 100%;
+  background-color: var(--clr-main-green);
+  color: var(--clr-light-gray);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  margin-top: 3rem;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}

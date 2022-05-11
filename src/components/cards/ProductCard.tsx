@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useState, ChangeEvent, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useInputAmount } from '@/hooks/useInputAmount';
+import cartContext from '@/store/cart-context/cartContext';
 import RatingBar from '@/components/ui/RatingBar';
 import ProductInputAmount from '@/components/inputs/ProductInputAmount';
 import CtaBtn from '@/components/buttons/CtaBtn';
@@ -19,20 +19,26 @@ interface productCardProps {
 export default function ProductCard({ product }: productCardProps) {
   const { id, image, price, rating, title } = product;
 
-  const {
-    productAmount,
-    handleChange,
-    increaseCountHandler,
-    decreaseCountHandler,
-  } = useInputAmount();
+  const cartCtx = useContext(cartContext);
+
+  const [productAmount, setProductAmount] = useState(1);
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    if (e.target.value === '') setProductAmount(1);
+    setProductAmount(+e.target.value);
+  }
+
+  function increaseCountHandler() {
+    setProductAmount((prevState) => (prevState += 1));
+  }
+
+  function decreaseCountHandler() {
+    if (productAmount >= 2) setProductAmount((prevState) => (prevState -= 1));
+  }
 
   const navigate = useNavigate();
 
   const ratingBarRef = useRef<HTMLDivElement>(null);
-
-  function goToProductDetails() {
-    navigate(`/shop/product-details/${id}`);
-  }
 
   const cardImg = (
     <div className={classes.cardImg}>
@@ -59,7 +65,9 @@ export default function ProductCard({ product }: productCardProps) {
   const cta = (
     <div className={classes.cta}>
       <div className={classes.buttons}>
-        {/*     <CtaBtn color={'blue'}>Add to cart</CtaBtn> */}
+        <CtaBtn color={'blue'} handleClick={addToCartHandler}>
+          Add to cart
+        </CtaBtn>
         <CtaBtn color={'green'} handleClick={goToProductDetails}>
           More info
         </CtaBtn>
@@ -72,6 +80,21 @@ export default function ProductCard({ product }: productCardProps) {
       />
     </div>
   );
+
+  function goToProductDetails() {
+    navigate(`/shop/product-details/${id}`);
+  }
+
+  function addToCartHandler() {
+    const productItem = {
+      id,
+      title,
+      image,
+      price,
+      amount: productAmount,
+    };
+    cartCtx.addToCart(productItem);
+  }
 
   return (
     <div className={classes.card}>

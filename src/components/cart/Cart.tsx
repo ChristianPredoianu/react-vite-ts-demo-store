@@ -1,48 +1,69 @@
-import { useInputAmount } from '@/hooks/useInputAmount';
-import ProductInputAmount from '@/components/inputs/ProductInputAmount';
+import { useState, ChangeEvent, useContext } from 'react';
+import cartContext from '@/store/cart-context/cartContext';
+import CartItem from '@/components/cart/CartItem';
 import classes from '@/components/cart/Cart.module.scss';
-import ProductsImg from '@/assets/products.jpg';
 
 export default function Cart() {
-  const {
-    productAmount,
-    handleChange,
-    increaseCountHandler,
-    decreaseCountHandler,
-  } = useInputAmount();
+  const [productAmount, setProductAmount] = useState(1);
+
+  const cartCtx = useContext(cartContext);
+  const { cartItems, totalAmount, addToCart, removeFromCart } = cartCtx;
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    if (e.target.value === '') setProductAmount(1);
+    setProductAmount(+e.target.value);
+  }
+
+  function increaseCountHandler(item: {
+    id: number;
+    title: string;
+    price: number;
+    image: string;
+    amount: number;
+  }) {
+    setProductAmount((prevState) => (prevState += 1));
+    addToCart(item);
+  }
+
+  function decreaseCountHandler() {
+    if (productAmount >= 2) setProductAmount((prevState) => (prevState -= 1));
+  }
+
+  const shipping = 10;
+
+  const totalPrice = shipping + totalAmount;
+
+  const cartItem = cartItems.map((item) => (
+    <CartItem
+      key={item.id}
+      item={item}
+      productAmount={productAmount}
+      handleChange={handleChange}
+      increaseCountHandler={() => increaseCountHandler(item)}
+      decreaseCountHandler={() => decreaseCountHandler(item)}
+    />
+  ));
 
   return (
     <>
       <div className="container">
         <div className={classes.cartCard}>
           <h1>Your order</h1>
-          <div className={classes.cartItem}>
-            <img src={ProductsImg} alt="product" className={classes.img} />
+          {cartItem}
 
-            <p className={classes.productTitle}></p>
-            <div className={classes.productAmount}>
-              <ProductInputAmount
-                productAmount={productAmount}
-                onInputChange={handleChange}
-                onDecreaseCount={decreaseCountHandler}
-                onIncreaseCount={increaseCountHandler}
-              />
-            </div>
-            <p className={classes.productPrice}>115$</p>
-          </div>
           <div className={classes.cta}>
             <div className={classes.prices}>
               <div className={classes.price}>
-                <p>subtotal</p>
-                <p>150$</p>
+                <p>Subtotal</p>
+                <p>{`${cartCtx.totalAmount} $`}</p>
               </div>
               <div className={classes.price}>
-                <p>subtotal</p>
-                <p>150$</p>
+                <p>Shipping</p>
+                <p>{`${shipping} $`}</p>
               </div>
               <div className={classes.price}>
-                <p>subtotal</p>
-                <p>150$</p>
+                <p>Total</p>
+                <p>{`${totalPrice} $`}</p>
               </div>
             </div>
           </div>

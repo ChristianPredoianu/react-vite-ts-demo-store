@@ -1,0 +1,14 @@
+@use '@/sass/abstracts' as *;
+
+.cartItem {
+  @include flex-config($justify: space-between, $align: center);
+  padding: 2rem 0;
+}
+
+.img {
+  width: 40%;
+}
+
+.productAmount {
+  margin-right: 2rem;
+}

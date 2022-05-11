@@ -1,15 +1,10 @@
 import { ChangeEvent } from 'react';
+import { ProductItem } from '@/types/productItem.interface';
 import ProductInputAmount from '@/components/inputs/ProductInputAmount';
 import classes from '@/components/cart/CartItem.module.scss';
 
 interface CartItemProps {
-  item: {
-    id: number;
-    title: string;
-    price: number;
-    image: string;
-    amount: number;
-  };
+  item: ProductItem;
   productAmount: number;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   increaseCountHandler: () => void;

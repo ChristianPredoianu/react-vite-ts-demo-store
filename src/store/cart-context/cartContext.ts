@@ -1,13 +1,7 @@
 import { createContext } from 'react';
+import { CartContext } from '@/store/cart-context/types/cartContext.interface';
 
-interface cartContext {
-  cartItems: [];
-  totalAmount: number;
-  addToCart: (product: object) => void;
-  removeFromCart: (id: number) => void;
-}
-
-const CartContext = createContext<cartContext>({
+const CartContext = createContext<CartContext>({
   cartItems: [],
   totalAmount: 0,
   addToCart: (product) => {},

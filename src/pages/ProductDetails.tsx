@@ -6,7 +6,6 @@ import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import CtaBtn from '@/components/buttons/CtaBtn';
 import ProductInputAmount from '@/components/inputs/ProductInputAmount';
 import classes from '@/pages/ProductDetails.module.scss';
-import { JSXElementConstructor } from 'react';
 
 export default function ProductDetails() {
   const { id } = useParams();

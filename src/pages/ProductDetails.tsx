@@ -23,6 +23,8 @@ export default function ProductDetails() {
 
   const { title, price, description, image } = data;
 
+  console.log(data);
+
   let output;
 
   if (isLoading) {

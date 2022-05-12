@@ -37,6 +37,8 @@ export default function Category() {
     nextPageHandler,
   } = usePagination(data);
 
+  console.log(data);
+
   let uppercaseCategory;
   if (category) {
     uppercaseCategory = category.charAt(0).toUpperCase() + category.slice(1);

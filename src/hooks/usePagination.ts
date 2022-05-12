@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { ApiResponse } from '@/types/apiData.interface';
 
-export function usePagination(data: []) {
+export function usePagination(data: Array<ApiResponse>) {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(4);
 

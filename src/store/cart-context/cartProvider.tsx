@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 import CartContext from '@/store/cart-context/cartContext';
 import { cartReducer } from '@/store/cart-context/cartReducer';
 import { CartActionType } from '@/store/cart-context/types/cartReducer.interface';
@@ -16,6 +16,21 @@ interface CartProviderProps {
 
 export default function CartProvider({ children }: CartProviderProps) {
   const [cart, cartDispatch] = useReducer(cartReducer, defaultCartState);
+
+  useEffect(() => {
+    if (typeof localStorage.getItem('cart') === 'string') {
+      cartDispatch({
+        type: CartActionType.UPDATE_STATE,
+        value: JSON.parse(localStorage.getItem('cart') || ''),
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (cart !== defaultCartState) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }, [cart]);
 
   function addProductToCartHandler(item: ProductItem) {
     cartDispatch({ type: CartActionType.ADD, item });

@@ -1,47 +1,17 @@
-import { useState, ChangeEvent, useContext } from 'react';
+import { useContext } from 'react';
 import cartContext from '@/store/cart-context/cartContext';
 import CartItem from '@/components/cart/CartItem';
 import classes from '@/components/cart/Cart.module.scss';
 
 export default function Cart() {
-  const [productAmount, setProductAmount] = useState(1);
-
   const cartCtx = useContext(cartContext);
-  const { cartItems, totalAmount, addToCart, removeFromCart } = cartCtx;
+  const { cartItems, totalAmount } = cartCtx;
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    if (e.target.value === '') setProductAmount(1);
-    setProductAmount(+e.target.value);
-  }
-
-  function increaseCountHandler(item: {
-    id: number;
-    title: string;
-    price: number;
-    image: string;
-    amount: number;
-  }) {
-    setProductAmount((prevState) => (prevState += 1));
-    addToCart(item);
-  }
-
-  function decreaseCountHandler() {
-    if (productAmount >= 2) setProductAmount((prevState) => (prevState -= 1));
-  }
-
-  const shipping = 10;
-
-  const totalPrice = shipping + totalAmount;
+  let shipping;
+  totalAmount === 0 ? (shipping = 0) : (shipping = 10);
 
   const cartItem = cartItems.map((item) => (
-    <CartItem
-      key={item.id}
-      item={item}
-      productAmount={productAmount}
-      handleChange={handleChange}
-      increaseCountHandler={() => increaseCountHandler(item)}
-      decreaseCountHandler={() => decreaseCountHandler(item)}
-    />
+    <CartItem key={item.id} item={item} />
   ));
 
   return (
@@ -50,7 +20,6 @@ export default function Cart() {
         <div className={classes.cartCard}>
           <h1>Your order</h1>
           {cartItem}
-
           <div className={classes.cta}>
             <div className={classes.prices}>
               <div className={classes.price}>
@@ -63,7 +32,7 @@ export default function Cart() {
               </div>
               <div className={classes.price}>
                 <p>Total</p>
-                <p>{`${totalPrice} $`}</p>
+                <p>{totalAmount}</p>
               </div>
             </div>
           </div>

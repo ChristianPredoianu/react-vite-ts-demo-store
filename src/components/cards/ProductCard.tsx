@@ -1,8 +1,7 @@
-import { useState, ChangeEvent, useRef, useContext } from 'react';
+import { useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cartContext from '@/store/cart-context/cartContext';
 import RatingBar from '@/components/ui/RatingBar';
-import ProductInputAmount from '@/components/inputs/ProductInputAmount';
 import CtaBtn from '@/components/buttons/CtaBtn';
 import classes from '@/components/cards/ProductCard.module.scss';
 
@@ -20,21 +19,6 @@ export default function ProductCard({ product }: productCardProps) {
   const { id, image, price, rating, title } = product;
 
   const cartCtx = useContext(cartContext);
-
-  const [productAmount, setProductAmount] = useState(1);
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    if (e.target.value === '') setProductAmount(1);
-    setProductAmount(+e.target.value);
-  }
-
-  function increaseCountHandler() {
-    setProductAmount((prevState) => (prevState += 1));
-  }
-
-  function decreaseCountHandler() {
-    if (productAmount >= 2) setProductAmount((prevState) => (prevState -= 1));
-  }
 
   const navigate = useNavigate();
 
@@ -72,12 +56,6 @@ export default function ProductCard({ product }: productCardProps) {
           More info
         </CtaBtn>
       </div>
-      <ProductInputAmount
-        productAmount={productAmount}
-        onInputChange={handleChange}
-        onDecreaseCount={decreaseCountHandler}
-        onIncreaseCount={increaseCountHandler}
-      />
     </div>
   );
 
@@ -91,7 +69,7 @@ export default function ProductCard({ product }: productCardProps) {
       title,
       image,
       price,
-      amount: productAmount,
+      amount: 1,
     };
     cartCtx.addToCart(productItem);
   }

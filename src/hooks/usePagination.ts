@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { ApiResponse } from '@/types/apiData.interface';
 
-export function usePagination(data: Array<ApiResponse>) {
+export function usePagination(data: ApiResponse[] | null) {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(4);
 
   const indexOfLastPost = currentPage * productsPerPage;
   const indexOfFirstPost = indexOfLastPost - productsPerPage;
-  const currentProducts = data.slice(indexOfFirstPost, indexOfLastPost);
+  let currentProducts;
+
+  if (data) {
+    currentProducts = data.slice(indexOfFirstPost, indexOfLastPost);
+  }
 
   function paginationHandler(pageNumber: number) {
     setCurrentPage(pageNumber);

@@ -1,12 +1,12 @@
 export interface ApiResponse {
-  category: string;
-  description: string;
   id: number;
-  image: string;
+  title: string;
   price: number;
+  description: string;
+  image: string;
+  category: string;
   rating: {
     rate: number;
     count: number;
   };
-  title: string;
 }

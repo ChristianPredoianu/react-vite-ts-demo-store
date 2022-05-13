@@ -48,14 +48,12 @@ export default function ProductCard({ product }: productCardProps) {
 
   const cta = (
     <div className={classes.cta}>
-      <div className={classes.buttons}>
-        <CtaBtn color={'blue'} handleClick={addToCartHandler}>
-          Add to cart
-        </CtaBtn>
-        <CtaBtn color={'green'} handleClick={goToProductDetails}>
-          More info
-        </CtaBtn>
-      </div>
+      <CtaBtn color={'blue'} handleClick={addToCartHandler}>
+        Add to cart
+      </CtaBtn>
+      <CtaBtn color={'green'} handleClick={goToProductDetails}>
+        More info
+      </CtaBtn>
     </div>
   );
 
@@ -86,6 +84,7 @@ export default function ProductCard({ product }: productCardProps) {
         {ratingBar}
         {productPrice}
         {cta}
+        <p>Product added to cart</p>
       </div>
     </div>
   );

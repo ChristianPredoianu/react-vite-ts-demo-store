@@ -3,7 +3,7 @@
 .card {
   @include flex-config($direction: column, $align: center, $justify: center);
   position: relative;
-  padding: 5rem;
+  padding: 5rem 7rem;
   border-radius: 2rem;
   box-shadow: var(--box-shadow);
 }
@@ -14,7 +14,7 @@
 
 .cardInfo {
   @include flex-config($direction: column, $align: center, $justify: center);
-  height: 100%;
+  width: 100%;
   text-align: left;
 }
 
@@ -77,8 +77,6 @@
   }
 }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.cta {
+  @include flex-config($justify: space-around);
 }

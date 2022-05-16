@@ -1,29 +1,23 @@
 import { useParams } from 'react-router-dom';
-import { useApi, apiResponse } from '@/hooks/useApi';
-import { useInputAmount } from '@/hooks/useInputAmount';
+import useApi from '@/hooks/useApi';
+import { ApiResponse } from '@/types/apiData.interface';
 import SocialMediaTab from '@/components/ui/SocialMediaTab';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import CtaBtn from '@/components/buttons/CtaBtn';
-import ProductInputAmount from '@/components/inputs/ProductInputAmount';
 import classes from '@/pages/ProductDetails.module.scss';
 
 export default function ProductDetails() {
   const { id } = useParams();
 
-  const { data, error, isLoading }: apiResponse = useApi(
-    `https://fakestoreapi.com/products/${id}`
-  );
-
   const {
-    productAmount,
-    handleChange,
-    increaseCountHandler,
-    decreaseCountHandler,
-  } = useInputAmount();
+    data = null,
+    error,
+    isLoading,
+  } = useApi<ApiResponse>(`https://fakestoreapi.com/products/${id}`);
 
-  const { title, price, description, image } = data;
+  const { title, price, description, image } = data || {};
 
-  console.log(data);
+  console.log(title);
 
   let output;
 
@@ -45,14 +39,9 @@ export default function ProductDetails() {
         <div className={classes.productInfo}>
           <h1 className={classes.title}>{title}</h1>
           <p className={classes.description}>{description}</p>
+          <p>{`${price} $`}</p>
           <div className={classes.cta}>
             <CtaBtn color={'green'}>Add to cart</CtaBtn>
-            <ProductInputAmount
-              productAmount={productAmount}
-              onInputChange={handleChange}
-              onDecreaseCount={decreaseCountHandler}
-              onIncreaseCount={increaseCountHandler}
-            />
           </div>
         </div>
       </>

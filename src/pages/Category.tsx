@@ -1,28 +1,20 @@
 import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { useApi, apiResponse } from '@/hooks/useApi';
+import useApi from '@/hooks/useApi';
 import { usePagination } from '@/hooks/usePagination';
 import CategoryHeroImg from '@/components/ui/CategoryHeroImg';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import ProductCard from '@/components/cards/ProductCard';
 import Pagination from '@/components/ui/Pagination';
 import classes from '@/pages/Category.module.scss';
-
-interface product {
-  image: string;
-  price: number;
-  rating: { rate: number; count: number };
-  title: string;
-  id: number;
-  description: string;
-}
+import { ApiResponse } from '@/types/apiData.interface';
 
 export default function Category() {
   const { category } = useParams();
 
   const heroDivRef = useRef<HTMLDivElement>(null);
 
-  const { data, error, isLoading }: apiResponse = useApi(
+  const { data, isLoading } = useApi<ApiResponse[]>(
     category === 'all products'
       ? `https://fakestoreapi.com/products`
       : `https://fakestoreapi.com/products/category/${category}`
@@ -37,8 +29,6 @@ export default function Category() {
     nextPageHandler,
   } = usePagination(data);
 
-  console.log(data);
-
   let uppercaseCategory;
   if (category) {
     uppercaseCategory = category.charAt(0).toUpperCase() + category.slice(1);
@@ -52,8 +42,8 @@ export default function Category() {
         <LoadingSpinner />
       </div>
     );
-  } else {
-    productCardsOutput = currentProducts.map((product: product) => (
+  } else if (currentProducts) {
+    productCardsOutput = currentProducts.map((product: ApiResponse) => (
       <ProductCard key={product.id} product={product} />
     ));
   }
@@ -63,18 +53,20 @@ export default function Category() {
       <CategoryHeroImg ref={heroDivRef} category={category} />
       <div className="container">
         <main className={classes.main}>{productCardsOutput}</main>
-        <div className={classes.pagination}>
-          {!isLoading && (
-            <Pagination
-              productsPerPage={productsPerPage}
-              totalProducts={data.length}
-              currentPage={currentPage}
-              onPaginate={paginationHandler}
-              onPrevPage={prevPageHandler}
-              onNextPage={nextPageHandler}
-            />
-          )}
-        </div>
+        {
+          <div className={classes.pagination}>
+            {!isLoading && data && (
+              <Pagination
+                productsPerPage={productsPerPage}
+                totalProducts={data.length}
+                currentPage={currentPage}
+                onPaginate={paginationHandler}
+                onPrevPage={prevPageHandler}
+                onNextPage={nextPageHandler}
+              />
+            )}
+          </div>
+        }
       </div>
     </>
   );

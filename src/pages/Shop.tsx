@@ -1,4 +1,4 @@
-import { useApi, apiResponse } from '@/hooks/useApi';
+import useApi from '@/hooks/useApi';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import CategoryCard from '@/components/cards/CategoryCard';
 import ClothesImg from '@/assets/clothes.jpg';
@@ -7,11 +7,6 @@ import JewleryImg from '@/assets/jewlery.jpg';
 import WomanImg from '@/assets/woman.png';
 import ProductsImg from '@/assets/products.jpg';
 import classes from '@/pages/Shop.module.scss';
-
-interface categoryObject {
-  category: string;
-  img: string;
-}
 
 const imgArray = [
   ElectronicsImg,
@@ -22,7 +17,7 @@ const imgArray = [
 ];
 
 export default function Shop() {
-  const { data, error, isLoading }: apiResponse = useApi(
+  const { data, error, isLoading } = useApi<string[]>(
     'https://fakestoreapi.com/products/categories'
   );
 
@@ -30,9 +25,11 @@ export default function Shop() {
   const categories = [{ category: 'all products', img: ProductsImg }];
 
   //Array of obj with images for every category. Images not provided for each category from API
-  data.map((category: string, index: number) => {
-    return categories.push({ category: category, img: imgArray[index] });
-  });
+  if (data) {
+    data.map((category, index) => {
+      return categories.push({ category: category, img: imgArray[index] });
+    });
+  }
 
   let output;
 
@@ -43,7 +40,7 @@ export default function Shop() {
       </div>
     );
   } else
-    output = categories.map((category: categoryObject) => (
+    output = categories.map((category) => (
       <CategoryCard
         key={category.category}
         category={category.category}

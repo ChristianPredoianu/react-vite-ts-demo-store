@@ -1,0 +1,10 @@
+.main {
+  position: relative;
+
+  display: grid;
+  grid-gap: 10rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 450px));
+  justify-content: center;
+  margin: 10rem 0;
+  text-align: center;
+}

@@ -1,14 +1,14 @@
 @use '@/sass/abstracts' as *;
 
 .modalCard {
-  @include position($pos: absolute, $top: 50%, $left: 50%);
+  @include position($pos: fixed, $top: 50%, $left: 50%);
   transform: translate(-50%, -50%);
   background-color: var(--clr-main-green);
   color: var(--clr-light-gray);
   padding: 1rem 1rem 2rem 1rem;
   border-radius: 1rem;
   box-shadow: 21px 14px 19px -3px rgba(0, 0, 0, 0.1);
-  z-index: 200;
+  z-index: 600;
 }
 
 .labelContainer {

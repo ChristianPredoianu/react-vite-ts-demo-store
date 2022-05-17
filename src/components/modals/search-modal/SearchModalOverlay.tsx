@@ -1,5 +1,7 @@
+import React, { useState, ChangeEvent } from 'react';
+import { useNavigate, createSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faSearch } from '@fortawesome/free-solid-svg-icons';
 import classes from '@/components/modals/search-modal/SearchModalOverlay.module.scss';
 
 interface searchModalOverlayProps {
@@ -9,6 +11,26 @@ interface searchModalOverlayProps {
 export default function SearchModalOverlay({
   onCloseModal,
 }: searchModalOverlayProps) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const navigate = useNavigate();
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    setSearchTerm(e.target.value);
+  }
+
+  function handleSubmit(
+    e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLOrSVGElement>
+  ) {
+    e.preventDefault();
+
+    navigate(`/usersearch?q=${createSearchParams(searchTerm)}`, {
+      state: { searchTerm: searchTerm },
+    });
+
+    onCloseModal();
+  }
+
   const closeIcon = (
     <FontAwesomeIcon
       icon={faXmark}
@@ -17,13 +39,31 @@ export default function SearchModalOverlay({
     />
   );
 
+  const searchInput = (
+    <>
+      <input
+        type="text"
+        placeholder="Search"
+        className={classes.searchInput}
+        onChange={handleChange}
+      />
+      <FontAwesomeIcon
+        icon={faSearch}
+        className={classes.searchIcon}
+        onClick={handleSubmit}
+      />
+    </>
+  );
+
   return (
     <div className={classes.modalCard}>
-      <div className={classes.labelContainer}>
-        <label htmlFor="Search">Search</label>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="Search" className={classes.label}>
+          Search
+        </label>
         {closeIcon}
-      </div>
-      <input type="text" placeholder="Search" className={classes.search} />
+        <div className={classes.inputContainer}>{searchInput}</div>
+      </form>
     </div>
   );
 }

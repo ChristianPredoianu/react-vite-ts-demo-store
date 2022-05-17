@@ -5,21 +5,36 @@
   transform: translate(-50%, -50%);
   background-color: var(--clr-main-green);
   color: var(--clr-light-gray);
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 3rem 2rem 5rem 2rem;
   border-radius: 1rem;
   box-shadow: 21px 14px 19px -3px rgba(0, 0, 0, 0.1);
   z-index: 600;
 }
 
-.labelContainer {
-  @include flex-config($justify: space-between);
-  width: 100%;
+.close {
+  @include position($pos: absolute, $top: 1rem, $right: 1rem);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.label {
   font-size: 1.5rem;
 }
 
-.search {
+.searchInput {
   padding: 1rem 0.5rem;
   font-size: 1.8rem;
   margin-top: 1rem;
   outline-color: var(--clr-light-gray);
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.searchIcon {
+  @include position($pos: absolute, $top: 2.5rem, $right: 1rem);
+  color: var(--clr-dark);
+  font-size: 1.5rem;
+  cursor: pointer;
 }

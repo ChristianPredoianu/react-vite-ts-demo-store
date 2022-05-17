@@ -27,7 +27,7 @@ export default function Pagination({
   }
 
   const backArrow = currentPage !== 1 && (
-    <a href="#!" onClick={onPrevPage}>
+    <a href="#!" onClick={onPrevPage} className={classes.pageLink}>
       <FontAwesomeIcon icon={faArrowLeft} className={classes.arrowLeft} />
     </a>
   );
@@ -51,7 +51,11 @@ export default function Pagination({
   ));
 
   const forwardArrow = pageNumbers.at(-1) !== currentPage && (
-    <a href="#!" onClick={() => onNextPage(pageNumbers)}>
+    <a
+      href="#!"
+      onClick={() => onNextPage(pageNumbers)}
+      className={classes.pageLink}
+    >
       <FontAwesomeIcon icon={faArrowRight} className={classes.arrowRight} />
     </a>
   );

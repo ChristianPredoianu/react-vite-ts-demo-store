@@ -23,6 +23,14 @@ export default function Nav() {
 
   const navLinksRef = useRef<HTMLUListElement>(null);
 
+  function toggleNavHandler() {
+    setIsNavOpen(!isNavOpen);
+  }
+
+  function closeNavHandler() {
+    setIsNavOpen(false);
+  }
+
   const navLinks = (
     <CSSTransition
       in={isNavOpen || screenWidth > 640}
@@ -35,13 +43,9 @@ export default function Nav() {
         exitActive: classes.slideExitActive,
       }}
     >
-      <NavLinks ref={navLinksRef} />
+      <NavLinks ref={navLinksRef} onCloseNav={closeNavHandler} />
     </CSSTransition>
   );
-
-  function toggleNavHandler() {
-    setIsNavOpen(!isNavOpen);
-  }
 
   return (
     <>

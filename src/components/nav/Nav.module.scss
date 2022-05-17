@@ -24,10 +24,12 @@
 .slideEnter {
   transform: translateY(-100%);
 }
+
 .slideEnterActive {
   transform: translateY(0);
   transition: transform 300ms;
 }
+
 .slideExitActive {
   transform: translateY(-100%);
   transition: transform 300ms;

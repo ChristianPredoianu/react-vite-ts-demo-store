@@ -40,9 +40,17 @@
   }
 }
 
+.inactiveLink {
+  color: var(--clr-light-gray);
+
+  @include respond(sm) {
+    color: var(--clr-dark);
+  }
+}
+
 .activeLink {
   background-color: var(--clr-main-green);
-  color: #f3c28a;
+  color: #f0e89e;
 
   @include respond(sm) {
     color: var(--clr-light-gray);

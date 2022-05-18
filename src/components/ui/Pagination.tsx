@@ -60,10 +60,12 @@ export default function Pagination({
     </a>
   );
   return (
-    <ul className={classes.paginationList}>
-      {backArrow}
-      {pages}
-      {forwardArrow}
-    </ul>
+    <div className={classes.pagination}>
+      <ul className={classes.paginationList}>
+        {backArrow}
+        {pages}
+        {forwardArrow}
+      </ul>
+    </div>
   );
 }

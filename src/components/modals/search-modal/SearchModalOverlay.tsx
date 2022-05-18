@@ -1,5 +1,6 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, useContext, ChangeEvent } from 'react';
 import { useNavigate, createSearchParams } from 'react-router-dom';
+import UserSearchContext from '@/store/user-search-context/userSearchContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faSearch } from '@fortawesome/free-solid-svg-icons';
 import classes from '@/components/modals/search-modal/SearchModalOverlay.module.scss';
@@ -13,6 +14,8 @@ export default function SearchModalOverlay({
 }: searchModalOverlayProps) {
   const [searchTerm, setSearchTerm] = useState('');
 
+  const userSearchCtx = useContext(UserSearchContext);
+
   const navigate = useNavigate();
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -24,10 +27,8 @@ export default function SearchModalOverlay({
   ) {
     e.preventDefault();
 
-    navigate(`/usersearch?q=${createSearchParams(searchTerm)}`, {
-      state: { searchTerm: searchTerm },
-    });
-
+    navigate(`/usersearch?q=${createSearchParams(searchTerm)}`, {});
+    userSearchCtx.searchHandler(searchTerm);
     onCloseModal();
   }
 
@@ -47,6 +48,7 @@ export default function SearchModalOverlay({
         className={classes.searchInput}
         onChange={handleChange}
       />
+
       <FontAwesomeIcon
         icon={faSearch}
         className={classes.searchIcon}

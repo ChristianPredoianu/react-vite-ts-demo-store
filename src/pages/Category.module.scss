@@ -34,9 +34,3 @@
 .loadingSpinner {
   @include position($pos: absolute, $top: 0, $left: 50%);
 }
-
-.pagination {
-  @include flex-config($justify: center);
-  font-size: 2rem;
-  margin: 10rem 0;
-}

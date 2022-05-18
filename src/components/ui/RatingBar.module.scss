@@ -3,6 +3,6 @@
 .ratingBar {
   @include position($pos: absolute, $top: 0, $left: 0);
   background-color: #06bd06;
-  padding: 1rem;
+  padding: 1rem 0;
   border-radius: 1rem;
 }

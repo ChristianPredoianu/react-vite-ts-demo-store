@@ -3,13 +3,21 @@
 .card {
   @include flex-config($direction: column, $align: center, $justify: center);
   position: relative;
-  padding: 5rem 7rem;
+  padding: 5rem 1rem;
   border-radius: 2rem;
   box-shadow: var(--box-shadow);
+
+  @include respond(sm) {
+    padding: 5rem 7rem;
+  }
 }
 
 .cardImg {
-  width: 40%;
+  width: 30%;
+
+  @include respond(md) {
+    width: 40%;
+  }
 }
 
 .cardInfo {
@@ -18,12 +26,9 @@
   text-align: left;
 }
 
-.descriptionContainer {
-  padding: 2rem;
-}
-
 .productTitle {
   padding: 1rem 0;
+  text-align: center;
 }
 
 .productDescription {
@@ -59,7 +64,7 @@
 }
 
 .rating {
-  font-weight: 700;
+  font-weight: var(--font-bold);
 }
 
 .price {
@@ -79,4 +84,11 @@
 
 .cta {
   @include flex-config($justify: space-around);
+}
+
+.addedMsg {
+  font-size: 1.5rem;
+  font-weight: var(--font-bold);
+  color: var(--clr-main-green);
+  margin-top: 2rem;
 }

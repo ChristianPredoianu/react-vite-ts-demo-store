@@ -1,9 +1,5 @@
 @use '@/sass/abstracts' as *;
 
-.loadingSpinner {
-  @include position($pos: absolute, $top: 20rem, $left: 50%);
-}
-
 .main {
   @include flex-config($direction: column, $align: center);
 
@@ -21,7 +17,6 @@
   @include flex-config($justify: center);
   width: 80%;
   padding: 10rem 0;
-  margin-top: 2rem;
   z-index: 10;
 
   @include respond(md) {
@@ -40,18 +35,24 @@
   margin-top: 4rem;
 
   @include respond(md) {
-    width: 30%;
+    width: 45%;
     margin-top: 0;
   }
 }
 
 .title {
-  font-size: clamp(1.8rem, 2vw, 3rem);
+  font-size: var(--primaryHeading-fs);
 }
 
 .description {
-  font-size: 1.5rem;
+  font-size: var(--paragraph-fs);
   padding: 2rem 0;
+}
+
+.price {
+  font-size: var(--paragraph-fs);
+  color: var(--clr-main-green);
+  font-weight: var(--font-bold);
 }
 
 .cta {

@@ -14,11 +14,11 @@
 }
 
 .heroHeading {
-  font-size: clamp(2.5rem, 2vw, 3rem);
+  font-size: var(--primaryHeading-fs);
 }
 
 .heroSubHeading {
-  font-size: clamp(2.5rem, 2vw, 3rem);
+  font-size: var(--secondaryHeading-fs);
 }
 
 .headingSpan {
@@ -28,7 +28,7 @@
 }
 
 .heroParagraph {
-  font-size: clamp(1.7rem, 2vw, 2.3rem);
+  font-size: var(--paragraph-fs);
   padding: 2rem 0;
 }
 

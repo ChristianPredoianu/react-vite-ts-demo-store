@@ -14,18 +14,19 @@
 .heroHeadings {
   @include position($pos: absolute, $top: 50%, $left: 50%);
   transform: translate(-50%, -50%);
+  width: 100%;
   z-index: 50;
   text-align: center;
 }
 
 .heroPrimaryHeading {
-  font-size: clamp(2.5rem, 2.5vw, 10rem);
+  font-size: var(--primaryHeading-fs);
   padding: 1rem 0;
   letter-spacing: 0.5rem;
 }
 
 .heroSubHeading {
-  font-size: clamp(1.8rem, 1.5vw, 7rem);
+  font-size: var(--secondaryHeading-fs);
   letter-spacing: 0.3rem;
 }
 
@@ -36,9 +37,5 @@
 .main {
   @include grid;
   position: relative;
-  margin: 10rem 0;
-}
-
-.loadingSpinner {
-  @include position($pos: absolute, $top: 0, $left: 50%);
+  margin: var(--main-spacing);
 }

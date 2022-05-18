@@ -9,26 +9,19 @@
   background-size: cover;
 }
 
-.heroHeadings {
-  @include position($pos: absolute, $top: 50%, $left: 50%);
-  transform: translate(-50%, -50%);
-  z-index: 500;
-  text-align: center;
-}
-
-.primaryHeading {
-  margin: 10rem 0;
-  text-align: center;
-}
-
 .main {
   position: relative;
   display: grid;
   grid-gap: 10rem;
   grid-template-columns: repeat(auto-fill, minmax(200px, 450px));
   justify-content: center;
-  margin: 10rem 0;
+  margin: var(--main-spacing);
   text-align: center;
+  padding: 0 1rem;
+
+  @include respond(sm) {
+    padding: 0;
+  }
 }
 
 .loadingSpinner {

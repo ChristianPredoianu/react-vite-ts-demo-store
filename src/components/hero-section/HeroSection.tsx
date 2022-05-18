@@ -1,9 +1,17 @@
+import { useNavigate } from 'react-router-dom';
 import SocialMediaTab from '@/components/ui/SocialMediaTab';
+import CtaBtn from '@/components/buttons/CtaBtn';
 import VerticalSwiper from '@/components/swiper/VericalSwiper';
 import Circle from '@/components/ui/Circle';
 import classes from '@/components/hero-section/HeroSection.module.scss';
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+
+  function goToProductDetails() {
+    navigate('/shop');
+  }
+
   return (
     <>
       <div className={classes.heroCta}>
@@ -16,7 +24,13 @@ export default function HeroSection() {
           best performance. Our lives are constantly changing. Becoming more and
           more versatile. And Shop Drip designs with this in mind.
         </p>
-        <button className={classes.ctaBtn}>Shop</button>
+        <CtaBtn
+          type={'hero-cta'}
+          color={'green'}
+          handleClick={goToProductDetails}
+        >
+          Shop
+        </CtaBtn>
       </div>
       <div className={classes.swiperContainer}>
         <VerticalSwiper />

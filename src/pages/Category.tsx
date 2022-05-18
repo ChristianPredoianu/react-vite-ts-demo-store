@@ -53,20 +53,16 @@ export default function Category() {
       <CategoryHeroImg ref={heroDivRef} category={category} />
       <div className="container">
         <main className={classes.main}>{productCardsOutput}</main>
-        {
-          <div className={classes.pagination}>
-            {!isLoading && data && (
-              <Pagination
-                productsPerPage={productsPerPage}
-                totalProducts={data.length}
-                currentPage={currentPage}
-                onPaginate={paginationHandler}
-                onPrevPage={prevPageHandler}
-                onNextPage={nextPageHandler}
-              />
-            )}
-          </div>
-        }
+        {!isLoading && data && (
+          <Pagination
+            productsPerPage={productsPerPage}
+            totalProducts={data.length}
+            currentPage={currentPage}
+            onPaginate={paginationHandler}
+            onPrevPage={prevPageHandler}
+            onNextPage={nextPageHandler}
+          />
+        )}
       </div>
     </>
   );

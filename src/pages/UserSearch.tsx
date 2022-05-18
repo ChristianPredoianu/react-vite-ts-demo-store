@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import UserSearchContext from '@/store/user-search-context/userSearchContext';
 import useApi from '@/hooks/useApi';
 import { ApiResponse } from '@/types/apiData.interface';
 import { usePagination } from '@/hooks/usePagination';
@@ -8,39 +8,19 @@ import ProductCard from '@/components/cards/ProductCard';
 import Pagination from '@/components/ui/Pagination';
 import classes from '@/pages/UserSearch.module.scss';
 
-interface PropState {
-  searchTerm: string;
-}
-
 export default function UserSearch() {
-  const location = useLocation();
-  const { searchTerm } = location.state as PropState;
-  console.log(location);
-
   const { data, isLoading } = useApi<ApiResponse[]>(
     'https://fakestoreapi.com/products'
   );
 
+  const userSearchCtx = useContext(UserSearchContext);
+
   let filteredProducts: ApiResponse[] = [];
+
   if (data)
     filteredProducts = data.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm)
+      product.title.toLowerCase().includes(userSearchCtx.userSearch)
     );
-
-  console.log(filteredProducts);
-
-  let foundProducts;
-  if (filteredProducts) {
-    foundProducts = filteredProducts.map((product) => (
-      <ProductCard key={product.id} product={product} />
-    ));
-  }
-
-  console.log(searchTerm);
-
-  useEffect(() => {
-    localStorage.setItem('state', searchTerm);
-  }, []);
 
   const {
     currentProducts,
@@ -50,6 +30,19 @@ export default function UserSearch() {
     prevPageHandler,
     nextPageHandler,
   } = usePagination(filteredProducts);
+
+  let foundProducts;
+
+  if (currentProducts) {
+    foundProducts = currentProducts.map((product) => (
+      <ProductCard key={product.id} product={product} />
+    ));
+  }
+
+  //Set the current page to 1 when userSearch changes
+  useEffect(() => {
+    paginationHandler(1);
+  }, [userSearchCtx.userSearch]);
 
   return (
     <div className="container">

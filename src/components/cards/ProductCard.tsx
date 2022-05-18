@@ -1,6 +1,7 @@
-import { useRef, useContext } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cartContext from '@/store/cart-context/cartContext';
+import { ProductItem } from '@/types/productItem.interface';
 import RatingBar from '@/components/ui/RatingBar';
 import CtaBtn from '@/components/buttons/CtaBtn';
 import classes from '@/components/cards/ProductCard.module.scss';
@@ -16,6 +17,8 @@ interface productCardProps {
 }
 
 export default function ProductCard({ product }: productCardProps) {
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+
   const { id, image, price, rating, title } = product;
 
   const cartCtx = useContext(cartContext);
@@ -23,6 +26,32 @@ export default function ProductCard({ product }: productCardProps) {
   const navigate = useNavigate();
 
   const ratingBarRef = useRef<HTMLDivElement>(null);
+
+  function goToProductDetails() {
+    navigate(`/shop/product-details/${id}`);
+  }
+
+  function addToCartHandler() {
+    const productItem: ProductItem = {
+      id,
+      title,
+      image,
+      price,
+      amount: 1,
+    };
+    cartCtx.addToCart(productItem);
+    setIsAddedToCart(true);
+  }
+
+  useEffect(() => {
+    const addedToCartTimeout = setTimeout(() => {
+      setIsAddedToCart(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(addedToCartTimeout);
+    };
+  });
 
   const cardImg = (
     <div className={classes.cardImg}>
@@ -61,34 +90,18 @@ export default function ProductCard({ product }: productCardProps) {
     </div>
   );
 
-  function goToProductDetails() {
-    navigate(`/shop/product-details/${id}`);
-  }
-
-  function addToCartHandler() {
-    const productItem = {
-      id,
-      title,
-      image,
-      price,
-      amount: 1,
-    };
-    cartCtx.addToCart(productItem);
-  }
-
   return (
     <div className={classes.card}>
       {cardImg}
       <div className={classes.cardInfo}>
-        <div className={classes.flexible}>
-          <div className={classes.descriptionContainer}></div>
-          {productTitle}
-        </div>
+        <div className={classes.flexible}>{productTitle}</div>
         {productRating}
         {ratingBar}
         {productPrice}
         {cta}
-        <p>Product added to cart</p>
+        {isAddedToCart && (
+          <p className={classes.addedMsg}>Product added to cart</p>
+        )}
       </div>
     </div>
   );

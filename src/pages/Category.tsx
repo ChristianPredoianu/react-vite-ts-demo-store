@@ -37,11 +37,7 @@ export default function Category() {
   let productCardsOutput;
 
   if (isLoading) {
-    productCardsOutput = (
-      <div className={classes.loadingSpinner}>
-        <LoadingSpinner />
-      </div>
-    );
+    productCardsOutput = <LoadingSpinner />;
   } else if (currentProducts) {
     productCardsOutput = currentProducts.map((product: ApiResponse) => (
       <ProductCard key={product.id} product={product} />

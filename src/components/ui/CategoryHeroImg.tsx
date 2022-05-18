@@ -31,6 +31,7 @@ export default forwardRef<HTMLDivElement, categoryHeroImgProps>(
             break;
           case "women's clothing":
             ref.current.classList.add(classes.womens);
+            break;
         }
     }
 

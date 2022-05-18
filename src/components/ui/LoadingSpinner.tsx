@@ -1,5 +1,9 @@
-import classes from '@/components/ui/LoadingSpinner.module.css';
+import classes from '@/components/ui/LoadingSpinner.module.scss';
 
 export default function LoadingSpinner() {
-  return <div className={classes.loader}>Loading...</div>;
+  return (
+    <div className={classes.loadingSpinner}>
+      <div className={classes.loader}>Loading...</div>
+    </div>
+  );
 }

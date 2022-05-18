@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ApiResponse } from '@/types/apiData.interface';
 
 export function usePagination(data: ApiResponse[] | null) {

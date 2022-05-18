@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import useApi from '@/hooks/useApi';
+import CartContext from '@/store/cart-context/cartContext';
 import { ApiResponse } from '@/types/apiData.interface';
+import { ProductItem } from '@/types/productItem.interface';
 import SocialMediaTab from '@/components/ui/SocialMediaTab';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import CtaBtn from '@/components/buttons/CtaBtn';
@@ -17,16 +20,27 @@ export default function ProductDetails() {
 
   const { title, price, description, image } = data || {};
 
-  console.log(title);
+  const cartCtx = useContext(CartContext);
 
   let output;
 
+  function addToCartHandler() {
+    let productItem;
+
+    if (id && title && image && price) {
+      productItem = {
+        id: parseInt(id),
+        title,
+        image,
+        price,
+        amount: 1,
+      };
+      cartCtx.addToCart(productItem);
+    }
+  }
+
   if (isLoading) {
-    output = (
-      <div className={classes.loadingSpinner}>
-        <LoadingSpinner />
-      </div>
-    );
+    output = <LoadingSpinner />;
   } else {
     output = (
       <>
@@ -39,9 +53,15 @@ export default function ProductDetails() {
         <div className={classes.productInfo}>
           <h1 className={classes.title}>{title}</h1>
           <p className={classes.description}>{description}</p>
-          <p>{`${price} $`}</p>
+          <p className={classes.price}>{`${price} $`}</p>
           <div className={classes.cta}>
-            <CtaBtn color={'green'}>Add to cart</CtaBtn>
+            <CtaBtn
+              type={'card-btn'}
+              color={'green'}
+              handleClick={addToCartHandler}
+            >
+              Add to cart
+            </CtaBtn>
           </div>
         </div>
       </>

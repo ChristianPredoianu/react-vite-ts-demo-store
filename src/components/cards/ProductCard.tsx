@@ -48,10 +48,14 @@ export default function ProductCard({ product }: productCardProps) {
 
   const cta = (
     <div className={classes.cta}>
-      <CtaBtn color={'blue'} handleClick={addToCartHandler}>
+      <CtaBtn type={'card-btn'} color={'blue'} handleClick={addToCartHandler}>
         Add to cart
       </CtaBtn>
-      <CtaBtn color={'green'} handleClick={goToProductDetails}>
+      <CtaBtn
+        type={'card-btn'}
+        color={'green'}
+        handleClick={goToProductDetails}
+      >
         More info
       </CtaBtn>
     </div>

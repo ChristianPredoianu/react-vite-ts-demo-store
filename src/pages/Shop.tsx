@@ -34,11 +34,7 @@ export default function Shop() {
   let output;
 
   if (isLoading) {
-    output = (
-      <div className={classes.loadingSpinner}>
-        <LoadingSpinner />
-      </div>
-    );
+    output = <LoadingSpinner />;
   } else
     output = categories.map((category) => (
       <CategoryCard

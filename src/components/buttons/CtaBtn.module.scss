@@ -1,15 +1,40 @@
+.heroCta {
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
 .ctaBtn {
-  font-size: 1.5rem;
   padding: 1rem 2rem;
   color: var(--clr-light-gray);
   border: none;
   box-shadow: var(--box-shadow);
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    transform: scale(1.05);
+    border-radius: 0.5rem;
+  }
+}
+
+.cardBtn {
+  font-size: 1.5rem;
 }
 
 .green {
   background-color: var(--clr-main-green);
+
+  &:hover {
+    background-color: var(--clr-dark);
+  }
 }
 
 .blue {
   background-color: blue;
+
+  &:hover {
+    background-color: var(--clr-dark);
+  }
 }

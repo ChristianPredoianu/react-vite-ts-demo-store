@@ -32,25 +32,6 @@
   padding: 2rem 0;
 }
 
-.ctaBtn {
-  font-size: 2rem;
-  padding: 1rem 2rem;
-  background-color: var(--clr-main-green);
-  color: var(--clr-light-gray);
-  border: none;
-  border-radius: 5%;
-  cursor: pointer;
-  transition: all 0.2s ease-in;
-  box-shadow: var(--box-shadow);
-
-  &:hover {
-    transform: translateY(3px);
-    background-color: #015f01;
-    color: #fff;
-    transform: scale(1.05);
-  }
-}
-
 .swiperContainer {
   padding-bottom: 30rem;
 

@@ -22,8 +22,6 @@ export default function ProductDetails() {
 
   const cartCtx = useContext(CartContext);
 
-  let output;
-
   function addToCartHandler() {
     let productItem;
 
@@ -38,6 +36,8 @@ export default function ProductDetails() {
       cartCtx.addToCart(productItem);
     }
   }
+
+  let output;
 
   if (isLoading) {
     output = <LoadingSpinner />;

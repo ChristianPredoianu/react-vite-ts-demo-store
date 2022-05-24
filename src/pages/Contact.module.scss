@@ -1,0 +1,38 @@
+@use '@/sass/abstracts' as *;
+
+.mainContent {
+  min-height: 50vh;
+  @include flex-config($align: center, $justify: center);
+}
+
+.main {
+  width: 100%;
+  box-shadow: var(--box-shadow);
+
+  @include respond(md) {
+    @include flex-config($justify: space-around);
+  }
+}
+
+.primaryHeading {
+  font-size: var(--secondaryHeading-fs);
+  color: #808080;
+  padding: 3rem 0;
+}
+
+.headingSpan {
+  display: block;
+  font-size: var(--primaryHeading-fs);
+  color: var(--clr-main-green);
+  margin-left: 1rem;
+}
+
+.contactInfo {
+  @include flex-config($direction: column, $align: center);
+  background-image: url('@/assets/green-wall.jpg');
+  padding: 10rem 0;
+
+  @include respond(md) {
+    width: 40%;
+  }
+}

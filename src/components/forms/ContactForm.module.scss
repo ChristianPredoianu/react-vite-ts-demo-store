@@ -1,0 +1,80 @@
+@use '@/sass/abstracts' as *;
+
+.formContainer {
+  @include flex-config($direction: column, $align: center);
+  background: rgb(228, 227, 227, 0.12);
+  border-radius: 1.6px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.9px);
+  -webkit-backdrop-filter: blur(9.9px);
+
+  font-size: clamp(1.3rem, 2vw, 2rem);
+  padding: 5rem 0;
+
+  @include respond(md) {
+    width: 60%;
+  }
+}
+
+.inputLine {
+  @include flex-config($direction: column);
+  padding: 1rem 0;
+  font-weight: var(--font-bold);
+
+  @include respond(sm) {
+    @include flex-config($direction: row);
+    align-items: center;
+  }
+}
+
+.input {
+  width: 100%;
+  background-color: rgb(228, 227, 227, 0.12);
+  margin-top: 0.5rem;
+  font-weight: normal;
+  border-bottom: solid;
+  border-width: 0 0 1px;
+  border-color: var(--clr-dark);
+  outline: none;
+
+  @include respond(sm) {
+    margin-left: 0.5rem;
+    margin-top: 0;
+    width: auto;
+  }
+
+  @include respond(md) {
+    padding: 0 0.3rem;
+    margin-top: 0;
+  }
+}
+
+.textareaLine {
+  @include flex-config($direction: column);
+  font-weight: var(--font-bold);
+  padding: 1rem 0;
+
+  & textarea {
+    margin-left: 0;
+  }
+}
+
+.submit {
+  background-color: transparent;
+  color: var(--clr-dark);
+  font-size: 1.8rem;
+  font-weight: var(--font-bold);
+  margin-top: 4rem;
+  border: none;
+}
+
+.inputError {
+  display: block;
+  color: #ff0000;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
+.invalid {
+  color: red;
+}

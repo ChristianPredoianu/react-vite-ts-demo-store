@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import useApi from '@/hooks/useApi';
 import CartContext from '@/store/cart-context/cartContext';
 import { ApiResponse } from '@/types/apiData.interface';
-import { ProductItem } from '@/types/productItem.interface';
 import SocialMediaTab from '@/components/ui/SocialMediaTab';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import CtaBtn from '@/components/buttons/CtaBtn';

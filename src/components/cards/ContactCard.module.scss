@@ -1,0 +1,21 @@
+@use '@/sass/abstracts' as *;
+
+.contactCard {
+  background-color: rgb(0, 29, 0);
+  color: var(--clr-light-gray);
+  font-size: var(--paragraph-fs);
+  width: 90%;
+  padding: 2rem;
+
+  &:not(:first-of-type) {
+    margin-top: 3rem;
+  }
+
+  @include respond(md) {
+    margin-left: -10rem;
+  }
+}
+
+.contactCardParagraph {
+  margin-left: 2rem;
+}

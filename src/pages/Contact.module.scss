@@ -3,6 +3,7 @@
 .mainContent {
   min-height: 50vh;
   @include flex-config($align: center, $justify: center);
+  margin: var(--main-spacing);
 }
 
 .main {

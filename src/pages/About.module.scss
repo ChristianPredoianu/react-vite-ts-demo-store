@@ -1,0 +1,67 @@
+@use '@/sass/abstracts' as *;
+
+.main {
+  @include flex-config($direction: column);
+  margin: var(--main-spacing);
+
+  @include respond(md) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      'card1 card2 card3'
+      'card4 card5 card5'
+      'card6 card5 card5';
+  }
+}
+
+.gridCard {
+  @include flex-config($direction: column, $justify: center);
+  padding: 2rem;
+}
+
+.gridCardIcon {
+  width: 3rem;
+  font-size: 3rem;
+  background-color: var(--clr-light-gray);
+  color: var(--clr-main-green);
+  padding: 2rem;
+  border-radius: 50%;
+}
+
+.gridCardHeading {
+  font-size: var(--secondaryHeading-fs);
+  padding: 2rem 0;
+}
+
+.gridCardParagraph {
+  font-size: var(--paragraph-fs);
+
+  @include respond(md) {
+    flex: 1;
+  }
+}
+
+.gridCard1 {
+  grid-area: card1;
+}
+
+.gridCard2 {
+  grid-area: card2;
+}
+
+.gridCard3 {
+  grid-area: card3;
+}
+
+.gridCard4 {
+  grid-area: card4;
+}
+
+.gridCard5 {
+  grid-area: card5;
+}
+
+.gridCard6 {
+  grid-area: card6;
+}

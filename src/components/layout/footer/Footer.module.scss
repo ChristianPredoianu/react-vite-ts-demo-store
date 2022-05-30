@@ -1,0 +1,33 @@
+@use '@/sass/abstracts' as *;
+
+.footer {
+  background-color: var(--clr-main-green);
+  color: var(--clr-light-gray);
+  padding: 5rem 1rem;
+}
+
+.footerContainer {
+  @include respond(sm) {
+    @include flex-config($justify: space-between);
+  }
+}
+
+.footerList {
+  padding: 0 2rem;
+}
+
+.listHeading {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.list {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+}
+
+.listItem {
+  &:not(:first-of-type) {
+    margin-top: 1rem;
+  }
+}

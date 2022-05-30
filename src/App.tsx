@@ -4,6 +4,7 @@ import Home from '@/pages/Home';
 import Shop from '@/pages/Shop';
 import Category from '@/pages/Category';
 import ProductDetails from '@/pages/ProductDetails';
+import About from '@/pages/About';
 import Contact from '@/pages/Contact';
 import UserSearch from '@/pages/UserSearch';
 import '@/sass/main.scss';
@@ -18,6 +19,7 @@ function App(): JSX.Element {
           <Route path="shop/:category" element={<Category />} />
           <Route path="shop/product-details/:id" element={<ProductDetails />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/usersearch" element={<UserSearch />}></Route>
         </Route>
       </Routes>

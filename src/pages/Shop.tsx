@@ -17,7 +17,7 @@ const imgArray = [
 ];
 
 export default function Shop() {
-  const { data, error, isLoading } = useApi<string[]>(
+  const { data, isLoading } = useApi<string[]>(
     'https://fakestoreapi.com/products/categories'
   );
 

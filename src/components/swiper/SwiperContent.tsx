@@ -1,5 +1,3 @@
-import classes from '@/components/swiper/SwiperContent.module.scss';
-
 interface swiperContentProps {
   img: string;
 }

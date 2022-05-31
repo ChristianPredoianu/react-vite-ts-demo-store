@@ -1,8 +1,8 @@
 @use '@/sass/abstracts' as *;
 
 .cartModal {
-  @include position($pos: absolute, $top: 2%, $left: 50%);
-  transform: translate(-50%, -2%);
+  @include position($pos: fixed, $top: 50%, $left: 50%);
+  transform: translate(-50%, -50%);
   z-index: 2000;
   width: 90%;
 

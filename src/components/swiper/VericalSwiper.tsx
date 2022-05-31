@@ -5,11 +5,8 @@ import 'swiper/css/pagination';
 import WomanImg from '@/assets/woman.png';
 import GreenWomanImg from '@/assets/green-woman.png';
 import GreenManImg from '@/assets/green-man.png';
-
 import SwiperContent from '@/components/swiper/SwiperContent';
-
 import '@/components/swiper/VerticalSwiper.scss';
-
 import { Autoplay, Pagination } from 'swiper';
 
 export default function VerticalSwiper() {

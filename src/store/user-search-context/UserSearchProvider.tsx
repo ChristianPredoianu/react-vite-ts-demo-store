@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import UserSearchContext from '@/store/user-search-context/userSearchContext';
 
 interface UserSearchProps {

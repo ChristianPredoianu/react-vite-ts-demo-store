@@ -2,7 +2,6 @@
 
 .main {
   @include flex-config($direction: column, $align: center);
-  /*  margin: var(--main-spacing); */
   padding-bottom: 10rem;
 
   @include respond(md) {

@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import classes from '@/components/cards/CategoryCard.module.scss';
 
-interface categoryCardProps {
+interface CategoryCardProps {
   category: string;
   img: string;
 }
 
-export default function CategoryCard({ category, img }: categoryCardProps) {
+export default function CategoryCard({ category, img }: CategoryCardProps) {
   const uppercaseCategory =
     category.charAt(0).toUpperCase() + category.slice(1);
 

@@ -2,11 +2,11 @@ import { forwardRef } from 'react';
 import SocialMediaTab from '@/components/ui/SocialMediaTab';
 import classes from '@/components/ui/CategoryHeroImg.module.scss';
 
-interface categoryHeroImgProps {
+interface CategoryHeroImgProps {
   category?: string;
 }
 
-export default forwardRef<HTMLDivElement, categoryHeroImgProps>(
+export default forwardRef<HTMLDivElement, CategoryHeroImgProps>(
   function CategoryHeroImg({ category }, ref) {
     let uppercaseCategory;
 

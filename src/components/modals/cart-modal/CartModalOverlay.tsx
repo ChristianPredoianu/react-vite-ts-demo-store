@@ -10,7 +10,7 @@ export default function CartModalOverlay({
 }: cartModalOverlayProps) {
   return (
     <div className={classes.cartModal}>
-      <Cart />
+      <Cart onCloseCartModal={onCloseCartModal} />
     </div>
   );
 }

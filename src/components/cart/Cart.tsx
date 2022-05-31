@@ -1,9 +1,15 @@
 import { useContext } from 'react';
 import cartContext from '@/store/cart-context/cartContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 import CartItem from '@/components/cart/CartItem';
 import classes from '@/components/cart/Cart.module.scss';
 
-export default function Cart() {
+interface CartProps {
+  onCloseCartModal: () => void;
+}
+
+export default function Cart({ onCloseCartModal }: CartProps) {
   const cartCtx = useContext(cartContext);
   const { cartItems, totalAmount } = cartCtx;
 
@@ -18,6 +24,11 @@ export default function Cart() {
     <div className="container">
       <div className={classes.cartCard}>
         <h1>Your order</h1>
+        <FontAwesomeIcon
+          icon={faClose}
+          onClick={onCloseCartModal}
+          className={classes.close}
+        />
         {cartItem}
         <div className={classes.price}>
           <p>Subtotal</p>

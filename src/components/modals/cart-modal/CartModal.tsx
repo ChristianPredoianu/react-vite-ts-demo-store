@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import ReactDOM from 'react-dom';
 import Backdrop from '@/components/modals/Backdrop';
 import CartModalOverlay from './CartModalOverlay';
@@ -6,11 +7,14 @@ interface cartModalProps {
   onCloseModal: () => void;
 }
 
-export default function CartModal({ onCloseModal }: cartModalProps) {
+export default forwardRef<HTMLDivElement, cartModalProps>(function CartModal(
+  { onCloseModal },
+  ref
+) {
   return (
     <>
       {ReactDOM.createPortal(
-        <Backdrop onClose={onCloseModal} />,
+        <Backdrop ref={ref} onClose={onCloseModal} />,
         document.getElementById('backdrop-root') as HTMLElement
       )}
 
@@ -20,4 +24,4 @@ export default function CartModal({ onCloseModal }: cartModalProps) {
       )}
     </>
   );
-}
+});

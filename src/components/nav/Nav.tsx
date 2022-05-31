@@ -19,9 +19,11 @@ export default function Nav() {
 
   const [isSearchModalOpen, openSearchModal, closeSearchModal] =
     useModal(false);
+
   const [isCartModalOpen, openCartModal, closeCartModal] = useModal(false);
 
   const navLinksRef = useRef<HTMLUListElement>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
 
   function toggleNavHandler() {
     setIsNavOpen(!isNavOpen);
@@ -47,6 +49,38 @@ export default function Nav() {
     </CSSTransition>
   );
 
+  const searchModal = (
+    <CSSTransition
+      in={isSearchModalOpen}
+      nodeRef={backdropRef}
+      timeout={300}
+      unmountOnExit
+      classNames={{
+        enter: classes.fadeEnter,
+        enterActive: classes.fadeEnterActive,
+        exitActive: classes.fadeExitActive,
+      }}
+    >
+      <SearchModal ref={backdropRef} onCloseModal={closeSearchModal} />
+    </CSSTransition>
+  );
+
+  const cartModal = (
+    <CSSTransition
+      in={isCartModalOpen}
+      nodeRef={backdropRef}
+      timeout={300}
+      unmountOnExit
+      classNames={{
+        enter: classes.fadeEnter,
+        enterActive: classes.fadeEnterActive,
+        exitActive: classes.fadeExitActive,
+      }}
+    >
+      <CartModal ref={backdropRef} onCloseModal={closeCartModal} />
+    </CSSTransition>
+  );
+
   return (
     <>
       <header className={classNames('container', classes.header)}>
@@ -60,8 +94,8 @@ export default function Nav() {
           </div>
         </nav>
       </header>
-      {isSearchModalOpen && <SearchModal onCloseModal={closeSearchModal} />}
-      {isCartModalOpen && <CartModal onCloseModal={closeCartModal} />}
+      {searchModal}
+      {cartModal}
     </>
   );
 }

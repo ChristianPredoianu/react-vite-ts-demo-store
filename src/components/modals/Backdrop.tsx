@@ -1,9 +1,13 @@
+import { forwardRef } from 'react';
 import classes from '@/components/modals/Backdrop.module.scss';
 
 interface backdropProps {
   onClose: () => void;
 }
 
-export default function Backdrop({ onClose }: backdropProps) {
-  return <div className={classes.backdrop} onClick={onClose}></div>;
-}
+export default forwardRef<HTMLDivElement, backdropProps>(function Backdrop(
+  { onClose },
+  ref
+) {
+  return <div className={classes.backdrop} ref={ref} onClick={onClose}></div>;
+});

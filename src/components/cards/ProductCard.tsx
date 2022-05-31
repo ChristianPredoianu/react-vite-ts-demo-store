@@ -6,7 +6,7 @@ import RatingBar from '@/components/ui/RatingBar';
 import CtaBtn from '@/components/buttons/CtaBtn';
 import classes from '@/components/cards/ProductCard.module.scss';
 
-interface productCardProps {
+interface ProductCardProps {
   product: {
     id: number;
     image: string;
@@ -16,7 +16,7 @@ interface productCardProps {
   };
 }
 
-export default function ProductCard({ product }: productCardProps) {
+export default function ProductCard({ product }: ProductCardProps) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const { id, image, price, rating, title } = product;

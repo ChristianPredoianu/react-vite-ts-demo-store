@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import classes from '@/components/forms/ContactForm.module.scss';
 import classNames from 'classnames';
 
-interface ContactData {
+interface ContactFormProps {
   name: string;
   description: string;
   email: string;
@@ -21,7 +21,7 @@ export default function ContactForm() {
     },
   });
 
-  function onSubmit(data: ContactData) {
+  function onSubmit(data: ContactFormProps) {
     console.log(data);
   }
 

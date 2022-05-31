@@ -33,6 +33,10 @@ export default function HeroSection() {
       opacity: 0,
       duration: 1,
     });
+
+    return () => {
+      tl.kill();
+    };
   }, []);
 
   return (

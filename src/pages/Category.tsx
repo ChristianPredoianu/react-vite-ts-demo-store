@@ -6,6 +6,7 @@ import CategoryHeroImg from '@/components/ui/CategoryHeroImg';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import ProductCard from '@/components/cards/ProductCard';
 import Pagination from '@/components/ui/Pagination';
+import Footer from '@/components/layout/footer/Footer';
 import classes from '@/pages/Category.module.scss';
 import { ApiResponse } from '@/types/apiData.interface';
 
@@ -60,6 +61,7 @@ export default function Category() {
           />
         )}
       </div>
+      {!isLoading && <Footer />}
     </>
   );
 }

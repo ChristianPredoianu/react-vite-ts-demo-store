@@ -6,16 +6,15 @@ import { ApiResponse } from '@/types/apiData.interface';
 import SocialMediaTab from '@/components/ui/SocialMediaTab';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import CtaBtn from '@/components/buttons/CtaBtn';
+import Footer from '@/components/layout/footer/Footer';
 import classes from '@/pages/ProductDetails.module.scss';
 
 export default function ProductDetails() {
   const { id } = useParams();
 
-  const {
-    data = null,
-    error,
-    isLoading,
-  } = useApi<ApiResponse>(`https://fakestoreapi.com/products/${id}`);
+  const { data = null, isLoading } = useApi<ApiResponse>(
+    `https://fakestoreapi.com/products/${id}`
+  );
 
   const { title, price, description, image } = data || {};
 
@@ -68,8 +67,11 @@ export default function ProductDetails() {
   }
 
   return (
-    <div className="container">
-      <main className={classes.main}>{output}</main>
-    </div>
+    <>
+      <div className="container">
+        <main className={classes.main}>{output}</main>
+      </div>
+      {!isLoading && <Footer />}
+    </>
   );
 }

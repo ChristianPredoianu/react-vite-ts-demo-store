@@ -6,6 +6,7 @@ import { usePagination } from '@/hooks/usePagination';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import ProductCard from '@/components/cards/ProductCard';
 import Pagination from '@/components/ui/Pagination';
+import Footer from '@/components/layout/footer/Footer';
 import classes from '@/pages/UserSearch.module.scss';
 
 export default function UserSearch() {
@@ -45,20 +46,23 @@ export default function UserSearch() {
   }, [userSearchCtx.userSearch]);
 
   return (
-    <div className="container">
-      <main className={classes.main}>
-        {isLoading ? <LoadingSpinner /> : foundProducts}
-      </main>
-      {!isLoading && data && (
-        <Pagination
-          productsPerPage={productsPerPage}
-          totalProducts={filteredProducts.length}
-          currentPage={currentPage}
-          onPaginate={paginationHandler}
-          onPrevPage={prevPageHandler}
-          onNextPage={nextPageHandler}
-        />
-      )}
-    </div>
+    <>
+      <div className="container">
+        <main className={classes.main}>
+          {isLoading ? <LoadingSpinner /> : foundProducts}
+        </main>
+        {!isLoading && data && (
+          <Pagination
+            productsPerPage={productsPerPage}
+            totalProducts={filteredProducts.length}
+            currentPage={currentPage}
+            onPaginate={paginationHandler}
+            onPrevPage={prevPageHandler}
+            onNextPage={nextPageHandler}
+          />
+        )}
+      </div>
+      {!isLoading && <Footer />}
+    </>
   );
 }

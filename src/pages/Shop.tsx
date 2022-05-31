@@ -6,6 +6,7 @@ import ElectronicsImg from '@/assets/electronics.jpg';
 import JewleryImg from '@/assets/jewlery.jpg';
 import WomanImg from '@/assets/woman.png';
 import ProductsImg from '@/assets/products.jpg';
+import Footer from '@/components/layout/footer/Footer';
 import classes from '@/pages/Shop.module.scss';
 
 const imgArray = [
@@ -55,6 +56,7 @@ export default function Shop() {
       <div className="container">
         <main className={classes.main}>{output}</main>
       </div>
+      {!isLoading && <Footer />}
     </>
   );
 }

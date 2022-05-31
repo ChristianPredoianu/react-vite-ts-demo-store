@@ -8,6 +8,7 @@ import {
 import ClothesImg from '@/assets/clothes.jpg';
 import ClothesImg2 from '@/assets/products.jpg';
 import GirlFieldsImg from '@/assets/girl-fields.jpg';
+import Footer from '@/components/layout/footer/Footer';
 import classNames from 'classnames';
 
 export default function About() {
@@ -63,6 +64,7 @@ export default function About() {
           </div>
         </main>
       </div>
+      <Footer />
     </>
   );
 }

@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import classes from '@/components/nav/CartIcon.module.scss';
 
-interface cartIconProps {
+interface CartIconProps {
   onOpenCart: () => void;
 }
 
-export default function CartIcon({ onOpenCart }: cartIconProps) {
+export default function CartIcon({ onOpenCart }: CartIconProps) {
   const cartCtx = useContext(cartContext);
   const { cartItems } = cartCtx;
 

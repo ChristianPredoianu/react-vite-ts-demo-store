@@ -11,8 +11,8 @@ import classes from '@/pages/Shop.module.scss';
 
 const imgArray = [
   ElectronicsImg,
-  ClothesImg,
   JewleryImg,
+  ClothesImg,
   WomanImg,
   ProductsImg,
 ];

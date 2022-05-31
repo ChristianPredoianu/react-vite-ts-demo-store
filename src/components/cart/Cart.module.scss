@@ -14,7 +14,7 @@
 }
 
 .close {
-  @include position($pos: absolute, $top: 3rem, $right: 3rem);
+  @include position($pos: absolute, $top: 2.5rem, $right: 3rem);
   font-size: 2rem;
 }
 

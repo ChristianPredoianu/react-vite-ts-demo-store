@@ -1,17 +1,17 @@
 @use '@/sass/abstracts' as *;
 
 .cartModal {
-  @include position($pos: absolute, $top: 5%, $left: 50%);
-  transform: translate(-50%, -5%);
+  @include position($pos: absolute, $top: 2%, $left: 50%);
+  transform: translate(-50%, -2%);
   z-index: 2000;
   width: 90%;
 
-  @include respond(sm) {
+  @include respond(md) {
     width: 50%;
-    top: 10%;
   }
 
-  @include respond(md) {
-    width: 40%;
+  @include respond(lg) {
+    top: 15%;
+    transform: translate(-50%, -15%);
   }
 }

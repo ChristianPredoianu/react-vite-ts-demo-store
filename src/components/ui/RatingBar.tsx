@@ -1,11 +1,11 @@
 import { forwardRef, useEffect } from 'react';
 import classes from '@/components/ui/RatingBar.module.scss';
 
-interface ratingBarProps {
+interface RatingBarProps {
   rating: { rate: number };
 }
 
-export default forwardRef<HTMLDivElement, ratingBarProps>(function RatingBar(
+export default forwardRef<HTMLDivElement, RatingBarProps>(function RatingBar(
   { rating },
   ref
 ) {

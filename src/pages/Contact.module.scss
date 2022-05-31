@@ -1,9 +1,14 @@
 @use '@/sass/abstracts' as *;
 
 .mainContent {
-  min-height: 50vh;
   @include flex-config($align: center, $justify: center);
-  margin: var(--main-spacing);
+  min-height: 50vh;
+  padding-bottom: 10rem;
+
+  @include respond(md) {
+    margin: var(--main-spacing);
+    padding-bottom: 0;
+  }
 }
 
 .main {

@@ -1,5 +1,4 @@
 import useApi from '@/hooks/useApi';
-import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import classes from '@/components/layout/footer/Footer.module.scss';
 import classNames from 'classnames';
 

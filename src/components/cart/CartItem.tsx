@@ -8,7 +8,7 @@ interface CartItemProps {
 }
 
 export default function CartItem({ item }: CartItemProps) {
-  const { id, title, price, image, amount } = item;
+  const { title, price, image, amount } = item;
 
   const {
     productAmount,

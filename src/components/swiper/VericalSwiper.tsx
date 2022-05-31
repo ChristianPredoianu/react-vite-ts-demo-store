@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 import WomanImg from '@/assets/woman.png';
 import GreenWomanImg from '@/assets/green-woman.png';
 import GreenManImg from '@/assets/green-man.png';

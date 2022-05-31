@@ -15,30 +15,24 @@ export default function Cart() {
   ));
 
   return (
-    <>
-      <div className="container">
-        <div className={classes.cartCard}>
-          <h1>Your order</h1>
-          {cartItem}
-          <div className={classes.cta}>
-            <div className={classes.prices}>
-              <div className={classes.price}>
-                <p>Subtotal</p>
-                <p>{`${cartCtx.totalAmount} $`}</p>
-              </div>
-              <div className={classes.price}>
-                <p>Shipping</p>
-                <p>{`${shipping} $`}</p>
-              </div>
-              <div className={classes.price}>
-                <p>Total</p>
-                <p>{totalAmount}</p>
-              </div>
-            </div>
-          </div>
-          <button className={classes.ctaBtn}>Proceed to checkout</button>
+    <div className="container">
+      <div className={classes.cartCard}>
+        <h1>Your order</h1>
+        {cartItem}
+        <div className={classes.price}>
+          <p>Subtotal</p>
+          <p>{`${cartCtx.totalAmount} $`}</p>
         </div>
+        <div className={classes.price}>
+          <p>Shipping</p>
+          <p>{`${shipping} $`}</p>
+        </div>
+        <div className={classes.price}>
+          <p className={classes.total}>Total:</p>
+          <p className={classes.totalAmount}>{`${totalAmount} $`}</p>
+        </div>
+        <button className={classes.ctaBtn}>Proceed to checkout</button>
       </div>
-    </>
+    </div>
   );
 }

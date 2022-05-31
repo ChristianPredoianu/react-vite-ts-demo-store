@@ -3,7 +3,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import classes from '@/components/ui/Pagination.module.scss';
 import classNames from 'classnames';
 
-interface paginationProps {
+interface PaginationProps {
   productsPerPage: number;
   totalProducts: number;
   currentPage: number;
@@ -19,7 +19,7 @@ export default function Pagination({
   onPaginate,
   onPrevPage,
   onNextPage,
-}: paginationProps) {
+}: PaginationProps) {
   const pageNumbers: number[] = [];
 
   for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++) {

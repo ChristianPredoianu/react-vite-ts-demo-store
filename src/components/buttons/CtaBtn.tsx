@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import classes from './CtaBtn.module.scss';
 import classNames from 'classnames';
 
@@ -8,12 +9,10 @@ interface CtaBtnProps {
   handleClick: () => void;
 }
 
-export default function CtaBtn({
-  children,
-  color,
-  type,
-  handleClick,
-}: CtaBtnProps) {
+export default forwardRef<HTMLButtonElement, CtaBtnProps>(function CtaBtn(
+  { children, color, type, handleClick },
+  ref
+) {
   return (
     <button
       className={classNames(classes.ctaBtn, {
@@ -23,8 +22,9 @@ export default function CtaBtn({
         [classes.cardBtn]: type === 'card-btn',
       })}
       onClick={handleClick}
+      ref={ref}
     >
       {children}
     </button>
   );
-}
+});

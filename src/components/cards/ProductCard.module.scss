@@ -32,8 +32,8 @@
 }
 
 .productDescription {
-  font-size: 1.5rem;
   flex: 1;
+  font-size: 1.5rem;
 }
 
 .flexible {
@@ -44,9 +44,9 @@
   position: relative;
   width: 100%;
   background-color: #505050;
+  margin-top: 1rem;
   padding: 1rem;
   border-radius: 1rem;
-  margin-top: 1rem;
 }
 
 .ratingContainer {
@@ -88,7 +88,7 @@
 
 .addedMsg {
   font-size: 1.5rem;
-  font-weight: var(--font-bold);
   color: var(--clr-main-green);
+  font-weight: var(--font-bold);
   margin-top: 2rem;
 }

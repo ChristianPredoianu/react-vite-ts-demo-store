@@ -34,3 +34,17 @@
   transform: translateY(-100%);
   transition: transform 300ms;
 }
+
+.fadeEnter {
+  opacity: 0;
+}
+
+.fadeEnterActive {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+.fadeExitActive {
+  opacity: 0;
+  transition: opacity 500ms;
+}

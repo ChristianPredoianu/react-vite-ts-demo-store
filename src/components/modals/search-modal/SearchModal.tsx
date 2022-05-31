@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import Backdrop from '@/components/modals/Backdrop';
 import SearchModalOverlay from '@/components/modals/search-modal/SearchModalOverlay';
 
-interface searchModalProps {
+interface SearchModalProps {
   onCloseModal: () => void;
 }
 
-export default forwardRef<HTMLDivElement, searchModalProps>(
+export default forwardRef<HTMLDivElement, SearchModalProps>(
   function SearchModal({ onCloseModal }, ref) {
     return (
       <>

@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faSearch } from '@fortawesome/free-solid-svg-icons';
 import classes from '@/components/modals/search-modal/SearchModalOverlay.module.scss';
 
-interface searchModalOverlayProps {
+interface SearchModalOverlayProps {
   onCloseModal: () => void;
 }
 
 export default function SearchModalOverlay({
   onCloseModal,
-}: searchModalOverlayProps) {
+}: SearchModalOverlayProps) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const userSearchCtx = useContext(UserSearchContext);

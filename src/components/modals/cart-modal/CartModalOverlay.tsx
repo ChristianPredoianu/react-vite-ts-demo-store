@@ -1,13 +1,13 @@
 import Cart from '@/components/cart/Cart';
 import classes from '@/components/modals/cart-modal/CartModalOverlay.module.scss';
 
-interface cartModalOverlayProps {
+interface CartModalOverlayProps {
   onCloseCartModal: () => void;
 }
 
 export default function CartModalOverlay({
   onCloseCartModal,
-}: cartModalOverlayProps) {
+}: CartModalOverlayProps) {
   return (
     <div className={classes.cartModal}>
       <Cart onCloseCartModal={onCloseCartModal} />

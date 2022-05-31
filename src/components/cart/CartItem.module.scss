@@ -2,13 +2,24 @@
 
 .cartItem {
   @include flex-config($justify: space-between, $align: center);
-  padding: 2rem 0;
+  padding: 5rem 0;
+  font-size: clamp(1.5rem, 1vw, 1.8rem);
+
+  &:not(:first-of-type) {
+    border-top: 1px solid var(--clr-dark);
+  }
 }
 
 .img {
-  width: 40%;
+  width: 20%;
 }
 
 .productAmount {
-  margin-right: 2rem;
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.productTitle {
+  font-size: clamp(1.3rem, 1vw, 1.8rem);
+  padding-bottom: 2rem;
 }

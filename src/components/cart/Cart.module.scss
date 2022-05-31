@@ -3,7 +3,9 @@
 .cartCard {
   background-color: #ffffff;
   width: 100%;
+  height: 95vh;
   padding: 2rem;
+  overflow-y: scroll;
 
   @include respond(md) {
     padding: 5rem;

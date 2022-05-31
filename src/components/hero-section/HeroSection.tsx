@@ -46,7 +46,7 @@ export default function HeroSection() {
           It's not just a shop
         </h1>
         <h2 className={classNames(classes.heroSubHeading, 'text')}>
-          It's <span className={classes.headingSpan}>Drip Shop</span>
+          It's <span className={classes.headingSpan}>Shop Drip</span>
         </h2>
         <p className={classNames(classes.heroParagraph, 'text')}>
           Through our collections, we blur the boundaries between fashion and

@@ -6,8 +6,8 @@ interface swiperContentProps {
 
 export default function SwiperContent({ img }: swiperContentProps) {
   return (
-    <div className="">
-      <img src={img} alt="" />
+    <div>
+      <img src={img} alt="fashion people" />
     </div>
   );
 }

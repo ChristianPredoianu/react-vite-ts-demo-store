@@ -133,7 +133,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Christian Predoianu - [@linkedin](https://se.linkedin.com/in/christian-predoianu-369218157) - christianpredoianu@yahoo.com
 
-Project Link: [https://github.com/ChristianPredoianu/netflix-clone-v2](https://github.com/ChristianPredoianu/restaurant-napoliv2)
+Project Link: [https://github.com/ChristianPredoianu/react-vite-ts-demo-store](https://github.com/ChristianPredoianu/react-vite-ts-demo-store)
 
 
 

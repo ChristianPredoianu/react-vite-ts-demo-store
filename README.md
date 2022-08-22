@@ -3,21 +3,21 @@
  <!-- PROJECT LOGO -->   
 <br />
 <p align="center">
-  <a href="https://github.com/ChristianPredoianu/restaurant-napoliv2/">
-    <img src="assets/images/napoli-logo.png" alt="Logo" width="200" height="160">
+  <a href="https://github.com/ChristianPredoianu/react-vite-ts-demo-store">
+    <img src="src/assets/logo.png" alt="Logo" width="200" height="160">
   </a> 
 
-  <h3 align="center">Restaurant Napoli - Olofström</h3>
+  <h3 align="center">Demo store - Shop Drip</h3>
    
   <p align="center">
-   Restaurant Napoli
+   Demo store - Shop Drip
     <br />
-    <a href="https://github.com/ChristianPredoianu/restaurant-napoliv2"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ChristianPredoianu/react-vite-ts-demo-store"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://napoliolofstrom.se/">View Demo</a>
+    <a href="https://react-ts-vite-store.netlify.app/shop">View Demo</a>
     ·
-    <a href="https://github.com/ChristianPredoianu/restaurant-napoliv2/issues">Report Bug</a>
+    <a href="https://github.com/ChristianPredoianu/react-vite-ts-demo-store/issues">Report Bug</a>
     ·  
    
   </p>
@@ -58,13 +58,17 @@ A website made for Restaurant Napoli - Olofström - Sweden
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
+* [React.js](https://reactjs.org/)
+* [React router v6](https://reactrouter.com/)
+* [Vite](https://vitejs.dev/)
+* [TypeScript](https://www.typescriptlang.org/)
 * [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
-* [Tailwind](https://tailwindcss.com/)
-* [Firebase](https://firebase.google.com/)
+* [Css3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [Sass](https://sass-lang.com/)
 * [GSAP](https://greensock.com/gsap/)
 * [Swiper.js](https://swiperjs.com/)
 * [Classnames](https://jedwatson.github.io/classnames/)
+* [React Hook Form](https://react-hook-form.com/)
 
 
 <!-- GETTING STARTED -->
@@ -83,7 +87,7 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/ChristianPredoianu/restaurant-napoliv2
+   git clone https://github.com/ChristianPredoianu/react-vite-ts-demo-store
    ```
 2. Install NPM packages
    ```sh
@@ -111,7 +115,9 @@ To get a local copy up and running follow these simple steps.
 
 
 
-Navigate around the website, turn on or off dark mode. Admin has the possibility to log in with credentials and update the lunches of the week section. 
+Navigate around the website, user can select a category of products to view, navigate through products with the help of a pagination
+, see more info about a specific product, search product,  add product to cart, delete product from cart, change amount of a specific product, see total amount, 
+fill in a form that uses form validation to validate the form given specific rules. 
 
  
 
@@ -135,6 +141,7 @@ Project Link: [https://github.com/ChristianPredoianu/netflix-clone-v2](https://g
 ## Acknowledgements
 * [Google Fonts](https://fonts.google.com/)
 * [Font-Awesome](https://fontawesome.com/)
+* [Fake Store API](https://fakestoreapi.com/)
 
 
 

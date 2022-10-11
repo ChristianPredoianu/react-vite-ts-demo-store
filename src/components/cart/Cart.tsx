@@ -21,7 +21,7 @@ export default function Cart({ onCloseCartModal }: CartProps) {
   ));
 
   return (
-    <div className="container">
+    <div className='container'>
       <div className={classes.cartCard}>
         <h1>Your order</h1>
         <FontAwesomeIcon
@@ -40,7 +40,9 @@ export default function Cart({ onCloseCartModal }: CartProps) {
         </div>
         <div className={classes.price}>
           <p className={classes.total}>Total:</p>
-          <p className={classes.totalAmount}>{`${totalAmount} $`}</p>
+          <p className={classes.totalAmount}>{`${(
+            totalAmount + shipping
+          ).toFixed(2)} $`}</p>
         </div>
         <button className={classes.ctaBtn}>Proceed to checkout</button>
       </div>

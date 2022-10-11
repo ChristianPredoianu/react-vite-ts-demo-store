@@ -48,7 +48,7 @@ export default function Category() {
   return (
     <>
       <CategoryHeroImg ref={heroDivRef} category={category} />
-      <div className="container">
+      <div className='container'>
         <main className={classes.main}>{productCardsOutput}</main>
         {!isLoading && data && (
           <Pagination

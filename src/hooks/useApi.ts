@@ -7,6 +7,7 @@ const useApi = <T>(url: string) => {
 
   const fetchData = async () => {
     setIsLoading(true);
+
     try {
       const response = await fetch(url);
       const json = await response.json();

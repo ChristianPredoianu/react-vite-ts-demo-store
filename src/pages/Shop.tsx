@@ -53,7 +53,7 @@ export default function Shop() {
           <h2 className={classes.heroSubHeading}>Shop Drip</h2>
         </div>
       </div>
-      <div className="container">
+      <div className='container'>
         <main className={classes.main}>{output}</main>
       </div>
       {!isLoading && <Footer />}

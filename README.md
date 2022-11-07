@@ -1,4 +1,4 @@
-# react-vite-ts-demo-store
+# React Vite Ts Demo Store
 
  <!-- PROJECT LOGO -->   
 <br />

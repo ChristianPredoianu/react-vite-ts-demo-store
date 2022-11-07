@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ChristianPredoianu/react-vite-ts-demo-store">
-    <img src="src/assets/clothes.jpg" alt="Logo" width="300" height="160">
+    <img src="src/assets/clothes.jpg" alt="Logo" width="300" height="200">
   </a> 
 
   <h3 align="center">Demo store - Shop Drip</h3>

@@ -93,7 +93,7 @@ To get a local copy up and running follow these simple steps.
    ```sh
    npm install
    ``` 
-3. Serve with hot reload at localhost:3000
+3. Serve with hot reload at localhost
    ```sh
     npm run dev
    ``` 

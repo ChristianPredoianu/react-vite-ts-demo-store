@@ -54,16 +54,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-A website made for Restaurant Napoli - Olofström - Sweden
+A demo version of an online shop.
 
 ### Built With
 
 * [React.js](https://reactjs.org/)
 * [React router v6](https://reactrouter.com/)
 * [Vite](https://vitejs.dev/)
-* [TypeScript](https://www.typescriptlang.org/)
 * [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
 * [Css3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [TypeScript](https://www.typescriptlang.org/)
 * [Sass](https://sass-lang.com/)
 * [GSAP](https://greensock.com/gsap/)
 * [Swiper.js](https://swiperjs.com/)

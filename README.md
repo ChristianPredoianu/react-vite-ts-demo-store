@@ -64,6 +64,7 @@ A demo version of an online shop.
 * [Swiper.js](https://swiperjs.com/)
 * [Classnames](https://jedwatson.github.io/classnames/)
 * [React Hook Form](https://react-hook-form.com/)
+* [Fake Store API](https://fakestoreapi.com/)
 
 
 <!-- GETTING STARTED -->
@@ -124,5 +125,5 @@ Project Link: [https://github.com/ChristianPredoianu/react-vite-ts-demo-store](h
 ## Acknowledgements
 * [Google Fonts](https://fonts.google.com/)
 * [Font-Awesome](https://fontawesome.com/)
-* [Fake Store API](https://fakestoreapi.com/)
+
 
